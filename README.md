@@ -26,7 +26,8 @@ Raspberry [Pi Projekte](https://github.com/griemide/RPi)
 
 [Node-RED Library](https://flows.nodered.org/)  
 [Node-RED Cookbook](https://cookbook.nodered.org/)  
-[Node-RED YouTube](https://www.youtube.com/watch?v=ktGprvHi5jU&t=59s)  
+[Node-RED YouTube](https://www.youtube.com/channel/UCQaB8NXBEPod7Ab8PPCLLAA) - Official 
+[Node-RED YouTube](https://www.youtube.com/watch?v=ktGprvHi5jU&t=59s) - Haus Automation (german)
 
 ---
 ## Public Examples
