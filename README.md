@@ -3,8 +3,7 @@ Wikipedia [Node-RED ](https://de.wikipedia.org/wiki/Node-RED)
 
 <a href="https://nodered.org/">
 <img width="100" alt="2020-09-27" src="https://nodered.org/about/resources/media/node-red-icon-2.png"> 
-</a>
-[![logo](https://nodered.org/about/resources/media/node-red-icon-2.png)](https://nodered.org/)
+</a>  
 Node-RED [Homepage](https://nodered.org/) 
 
 ## Installation
