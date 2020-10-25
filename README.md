@@ -3,9 +3,12 @@ Wikipedia [Node-RED ](https://de.wikipedia.org/wiki/Node-RED)
 
 <a href="https://nodered.org/">
 <img width="100" alt="2020-09-27" src="https://nodered.org/about/resources/media/node-red-icon-2.png"> 
-</a>  
+</a>
+<a href="https://nodered.org/">
+<img width="200" alt="2020-10-25" src="images/node-red_browser-picto.png"> 
+</a>
 
-[Homepage](https://nodered.org/) 
+[Homepage](https://nodered.org/)
 
 ## Installation
 Offizielle Anleitung für [Raspberry Pi](https://nodered.org/docs/getting-started/raspberrypi)  
