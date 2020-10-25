@@ -5,7 +5,7 @@ Wikipedia [Node-RED ](https://de.wikipedia.org/wiki/Node-RED)
 <img width="100" alt="2020-09-27" src="https://nodered.org/about/resources/media/node-red-icon-2.png"> 
 </a>  
 
-Node-RED [Homepage](https://nodered.org/) 
+[Homepage](https://nodered.org/) 
 
 ## Installation
 Offizielle Anleitung für [Raspberry Pi](https://nodered.org/docs/getting-started/raspberrypi)  
