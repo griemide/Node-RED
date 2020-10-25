@@ -10,10 +10,14 @@ Wikipedia [Node-RED ](https://de.wikipedia.org/wiki/Node-RED)
 
 [Homepage](https://nodered.org/)
 
-## Installation
+### Installation
 Offizielle Anleitung für [Raspberry Pi](https://nodered.org/docs/getting-started/raspberrypi)  
 **Hinweis:** lokale Installation ohne npm wurde verwendet ```sudo apt-get install nodered```)
 
+### Upgrading Node-RED
+```sudo npm install -g --unsafe-perm node-red```
+
+---
 Raspberry [Pi Projekte](https://github.com/griemide/RPi)  
 
 ---
@@ -22,6 +26,7 @@ Raspberry [Pi Projekte](https://github.com/griemide/RPi)
 
 [Node-RED Library](https://flows.nodered.org/)  
 [Node-RED Cookbook](https://cookbook.nodered.org/)  
+[Node-RED YouTube](https://www.youtube.com/watch?v=ktGprvHi5jU&t=59s)  
 
 ---
 ## Public Examples
