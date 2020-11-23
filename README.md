@@ -6,7 +6,10 @@ Wikipedia [Node-RED ](https://de.wikipedia.org/wiki/Node-RED)
 </a> &nbsp;&nbsp;&nbsp;&nbsp;
 <a href="https://nodered.org/">
 <img width="175" alt="2020-10-25" src="images/node-red_browser-picto.png"> 
-</a>
+</a> &nbsp;&nbsp;&nbsp;&nbsp;
+<a href="https://nodered.org/">
+<img width="100" alt="2020-11-23" src="images/Node-RED_Favicon_default.png"> 
+</a>  
 
 [Homepage](https://nodered.org/)
 
