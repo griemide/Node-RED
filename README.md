@@ -31,6 +31,7 @@ Raspberry [Pi Projekte](https://github.com/griemide/RPi) using Node-Red.
 [Node-RED Cookbook](https://cookbook.nodered.org/)  
 [Node-RED YouTube](https://www.youtube.com/channel/UCQaB8NXBEPod7Ab8PPCLLAA) - Official  
 [Node-RED YouTube](https://www.youtube.com/watch?v=ktGprvHi5jU&t=59s) - Haus Automation (german)  
+[Changing Favicons for node-red Dashboards](https://gist.github.com/mohnen/6923d5eb2e4547bb7e5bd90546d2ee80)
 
 ---
 ## Public Examples
