@@ -1,0 +1,252 @@
+[
+    {
+        "id": "434306e.656f8f8",
+        "type": "tab",
+        "label": "Context",
+        "disabled": false,
+        "info": "https://nodered.org/docs/user-guide/context"
+    },
+    {
+        "id": "74c888f2.adc848",
+        "type": "group",
+        "z": "434306e.656f8f8",
+        "name": "",
+        "style": {
+            "stroke": "#0070c0",
+            "fill": "#bfdbef",
+            "fill-opacity": "0.1",
+            "label": true
+        },
+        "nodes": [
+            "df4e8063.f8037",
+            "aa15d038.d1ad8",
+            "21956eaa.7a7372",
+            "1d03e52d.e938fb",
+            "98f70149.2a32",
+            "8289620f.79",
+            "387c0444.cc582c",
+            "fb4f5a83.797418",
+            "cc447a0.e22da88",
+            "11d81ee.2cb0de1"
+        ],
+        "x": 34,
+        "y": 19,
+        "w": 772,
+        "h": 222
+    },
+    {
+        "id": "df4e8063.f8037",
+        "type": "change",
+        "z": "434306e.656f8f8",
+        "g": "74c888f2.adc848",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "switch_status",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 490,
+        "y": 140,
+        "wires": [
+            [
+                "21956eaa.7a7372"
+            ]
+        ]
+    },
+    {
+        "id": "aa15d038.d1ad8",
+        "type": "inject",
+        "z": "434306e.656f8f8",
+        "g": "74c888f2.adc848",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "PS_switch_status",
+        "payload": "{\"On\":false}",
+        "payloadType": "json",
+        "x": 200,
+        "y": 120,
+        "wires": [
+            [
+                "df4e8063.f8037"
+            ]
+        ]
+    },
+    {
+        "id": "21956eaa.7a7372",
+        "type": "debug",
+        "z": "434306e.656f8f8",
+        "g": "74c888f2.adc848",
+        "name": "Set",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 710,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "1d03e52d.e938fb",
+        "type": "change",
+        "z": "434306e.656f8f8",
+        "g": "74c888f2.adc848",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "switch_status",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 500,
+        "y": 200,
+        "wires": [
+            [
+                "98f70149.2a32"
+            ]
+        ]
+    },
+    {
+        "id": "98f70149.2a32",
+        "type": "debug",
+        "z": "434306e.656f8f8",
+        "g": "74c888f2.adc848",
+        "name": "Get",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 710,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "8289620f.79",
+        "type": "inject",
+        "z": "434306e.656f8f8",
+        "g": "74c888f2.adc848",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 200,
+        "wires": [
+            [
+                "1d03e52d.e938fb"
+            ]
+        ]
+    },
+    {
+        "id": "387c0444.cc582c",
+        "type": "inject",
+        "z": "434306e.656f8f8",
+        "g": "74c888f2.adc848",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "PS_switch_status",
+        "payload": "{\"On\":true}",
+        "payloadType": "json",
+        "x": 200,
+        "y": 160,
+        "wires": [
+            [
+                "df4e8063.f8037"
+            ]
+        ]
+    },
+    {
+        "id": "fb4f5a83.797418",
+        "type": "comment",
+        "z": "434306e.656f8f8",
+        "g": "74c888f2.adc848",
+        "name": "COS",
+        "info": "",
+        "x": 110,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "cc447a0.e22da88",
+        "type": "comment",
+        "z": "434306e.656f8f8",
+        "g": "74c888f2.adc848",
+        "name": "Rev.1.0.0",
+        "info": "",
+        "x": 720,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "11d81ee.2cb0de1",
+        "type": "comment",
+        "z": "434306e.656f8f8",
+        "g": "74c888f2.adc848",
+        "name": "Context json example (Global)",
+        "info": "",
+        "x": 500,
+        "y": 60,
+        "wires": []
+    }
+]
