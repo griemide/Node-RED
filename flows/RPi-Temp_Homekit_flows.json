@@ -1,0 +1,482 @@
+[
+    {
+        "id": "1df8c8de.7a3747",
+        "type": "tab",
+        "label": "Temperature",
+        "disabled": false,
+        "info": "https://discourse.nodered.org/t/issue-with-sending-temperature-to-homekit-node/34645\n\nhttps://flows.nodered.org/flow/0e9fccd57bdec602a17a9848e748395f\n\nhttps://www.iphone-ticker.de/homekit-in-ios-13-temperatur-aenderungen-nur-noch-in-1-schritten-151190/\n\n"
+    },
+    {
+        "id": "98feba56.b55a28",
+        "type": "group",
+        "z": "1df8c8de.7a3747",
+        "name": "RPi Temperature",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "3a906d51.d24c72",
+            "a4877651.56a588",
+            "ffc9cac3.bd73f8",
+            "3dd162ce.02161e",
+            "889c0ec5.9eaf4",
+            "decfd7b.85c5628",
+            "f2da70d4.48d1d",
+            "5103715d.1a033",
+            "7e28dabd.9e7944"
+        ],
+        "x": 34,
+        "y": 19,
+        "w": 772,
+        "h": 229.5
+    },
+    {
+        "id": "c38fd329.25b29",
+        "type": "group",
+        "z": "1df8c8de.7a3747",
+        "name": "Homekit Temperature",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "1ac351ec.a4e36e",
+            "9bb9092d.dc0408",
+            "f3bb7ac1.d8df98",
+            "36c06a3d.32bea6",
+            "d8cc11bb.44abd",
+            "67c4fe67.a6a9b",
+            "13d1cc20.a8a8b4",
+            "dce297cd.53f538",
+            "1f8b6ce6.a012b3",
+            "48703516.eaeedc",
+            "41e4f822.f280c8"
+        ],
+        "x": 34,
+        "y": 279,
+        "w": 772,
+        "h": 222
+    },
+    {
+        "id": "1ac351ec.a4e36e",
+        "type": "change",
+        "z": "1df8c8de.7a3747",
+        "g": "c38fd329.25b29",
+        "name": "HK characteristics",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"CurrentTemperature\": payload}",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 330,
+        "y": 400,
+        "wires": [
+            [
+                "36c06a3d.32bea6"
+            ]
+        ]
+    },
+    {
+        "id": "9bb9092d.dc0408",
+        "type": "debug",
+        "z": "1df8c8de.7a3747",
+        "g": "c38fd329.25b29",
+        "name": "debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 710,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "f3bb7ac1.d8df98",
+        "type": "inject",
+        "z": "1df8c8de.7a3747",
+        "g": "c38fd329.25b29",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "22.6",
+        "payloadType": "num",
+        "x": 130,
+        "y": 380,
+        "wires": [
+            [
+                "1ac351ec.a4e36e"
+            ]
+        ]
+    },
+    {
+        "id": "36c06a3d.32bea6",
+        "type": "homekit-service",
+        "z": "1df8c8de.7a3747",
+        "g": "c38fd329.25b29",
+        "isParent": true,
+        "bridge": "c2d64c96.611ff",
+        "parentService": "",
+        "name": "Temperature",
+        "serviceName": "TemperatureSensor",
+        "topic": "",
+        "filter": false,
+        "manufacturer": "NRCHKB",
+        "model": "PSRPiZW",
+        "serialNo": "HK-PS-Switch",
+        "firmwareRev": "1.1.2",
+        "hardwareRev": "1.0.0",
+        "softwareRev": "1.0.0",
+        "cameraConfigVideoProcessor": "ffmpeg",
+        "cameraConfigSource": "",
+        "cameraConfigStillImageSource": "",
+        "cameraConfigMaxStreams": 2,
+        "cameraConfigMaxWidth": 1280,
+        "cameraConfigMaxHeight": 720,
+        "cameraConfigMaxFPS": 10,
+        "cameraConfigMaxBitrate": 300,
+        "cameraConfigVideoCodec": "libx264",
+        "cameraConfigAudioCodec": "libfdk_aac",
+        "cameraConfigAudio": false,
+        "cameraConfigPacketSize": 1316,
+        "cameraConfigVerticalFlip": false,
+        "cameraConfigHorizontalFlip": false,
+        "cameraConfigMapVideo": "0:0",
+        "cameraConfigMapAudio": "0:1",
+        "cameraConfigVideoFilter": "scale=1280:720",
+        "cameraConfigAdditionalCommandLine": "-tune zerolatency",
+        "cameraConfigDebug": false,
+        "cameraConfigSnapshotOutput": "disabled",
+        "cameraConfigInterfaceName": "",
+        "characteristicProperties": "{}",
+        "waitForSetupMsg": false,
+        "outputs": 2,
+        "x": 530,
+        "y": 400,
+        "wires": [
+            [
+                "d8cc11bb.44abd"
+            ],
+            [
+                "9bb9092d.dc0408"
+            ]
+        ]
+    },
+    {
+        "id": "d8cc11bb.44abd",
+        "type": "debug",
+        "z": "1df8c8de.7a3747",
+        "g": "c38fd329.25b29",
+        "name": "Temp",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 710,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "3a906d51.d24c72",
+        "type": "exec",
+        "z": "1df8c8de.7a3747",
+        "g": "98feba56.b55a28",
+        "command": "vcgencmd measure_temp",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "RPi CPU Temp",
+        "x": 300,
+        "y": 200,
+        "wires": [
+            [
+                "a4877651.56a588",
+                "889c0ec5.9eaf4"
+            ],
+            [
+                "889c0ec5.9eaf4"
+            ],
+            [
+                "889c0ec5.9eaf4"
+            ]
+        ]
+    },
+    {
+        "id": "a4877651.56a588",
+        "type": "function",
+        "z": "1df8c8de.7a3747",
+        "g": "98feba56.b55a28",
+        "name": "Temp value",
+        "func": "const re = /^temp=(.*)'C$/gm;\nmsg.payload = Number(msg.payload.replace(re, '$1'));\n\n// convert for node status\nvar temp_c = msg.payload.toFixed(1).replace('.', ',');\nvar status = \"Temp: \" + temp_c + \"°C\";\nnode.status({fill:\"green\",shape:\"dot\",text:status});\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 510,
+        "y": 100,
+        "wires": [
+            [
+                "3dd162ce.02161e",
+                "7e28dabd.9e7944"
+            ]
+        ]
+    },
+    {
+        "id": "ffc9cac3.bd73f8",
+        "type": "inject",
+        "z": "1df8c8de.7a3747",
+        "g": "98feba56.b55a28",
+        "name": "1 min",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 200,
+        "wires": [
+            [
+                "3a906d51.d24c72"
+            ]
+        ]
+    },
+    {
+        "id": "3dd162ce.02161e",
+        "type": "debug",
+        "z": "1df8c8de.7a3747",
+        "g": "98feba56.b55a28",
+        "name": "CPU temp",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 690,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "889c0ec5.9eaf4",
+        "type": "debug",
+        "z": "1df8c8de.7a3747",
+        "g": "98feba56.b55a28",
+        "name": "debug exec",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 690,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "67c4fe67.a6a9b",
+        "type": "inject",
+        "z": "1df8c8de.7a3747",
+        "g": "c38fd329.25b29",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "22.9",
+        "payloadType": "num",
+        "x": 130,
+        "y": 420,
+        "wires": [
+            [
+                "1ac351ec.a4e36e"
+            ]
+        ]
+    },
+    {
+        "id": "13d1cc20.a8a8b4",
+        "type": "comment",
+        "z": "1df8c8de.7a3747",
+        "g": "c38fd329.25b29",
+        "name": "Homekit  iOS 13 Darstellung rundet auf jeweils 0,5 auf bzw. ab",
+        "info": "",
+        "x": 560,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "decfd7b.85c5628",
+        "type": "comment",
+        "z": "1df8c8de.7a3747",
+        "g": "98feba56.b55a28",
+        "name": "Rev.1.0.0",
+        "info": "",
+        "x": 720,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "f2da70d4.48d1d",
+        "type": "comment",
+        "z": "1df8c8de.7a3747",
+        "g": "98feba56.b55a28",
+        "name": "Raspberry Pi CPU Temperature",
+        "info": "",
+        "x": 310,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "5103715d.1a033",
+        "type": "comment",
+        "z": "1df8c8de.7a3747",
+        "g": "98feba56.b55a28",
+        "name": "RP-T",
+        "info": "",
+        "x": 110,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "dce297cd.53f538",
+        "type": "comment",
+        "z": "1df8c8de.7a3747",
+        "g": "c38fd329.25b29",
+        "name": "Rev.1.0.0",
+        "info": "",
+        "x": 720,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "1f8b6ce6.a012b3",
+        "type": "comment",
+        "z": "1df8c8de.7a3747",
+        "g": "c38fd329.25b29",
+        "name": "Homekit show Raspberry Pi CPU Temperature",
+        "info": "",
+        "x": 390,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "48703516.eaeedc",
+        "type": "comment",
+        "z": "1df8c8de.7a3747",
+        "g": "c38fd329.25b29",
+        "name": "HK-T",
+        "info": "",
+        "x": 110,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "41e4f822.f280c8",
+        "type": "link in",
+        "z": "1df8c8de.7a3747",
+        "g": "c38fd329.25b29",
+        "name": "HK-T-E",
+        "links": [
+            "7e28dabd.9e7944"
+        ],
+        "x": 130,
+        "y": 460,
+        "wires": [
+            [
+                "1ac351ec.a4e36e"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "7e28dabd.9e7944",
+        "type": "link out",
+        "z": "1df8c8de.7a3747",
+        "g": "98feba56.b55a28",
+        "name": "RP-T-A",
+        "links": [
+            "41e4f822.f280c8"
+        ],
+        "x": 680,
+        "y": 160,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "c2d64c96.611ff",
+        "type": "homekit-bridge",
+        "z": "",
+        "bridgeName": "RPiZW2",
+        "pinCode": "234-56-789",
+        "port": "",
+        "allowInsecureRequest": false,
+        "manufacturer": "NRCHKB",
+        "model": "1.2.0",
+        "serialNo": "Default Serial Number",
+        "firmwareRev": "1.2.0",
+        "hardwareRev": "1.2.0",
+        "softwareRev": "1.2.0",
+        "customMdnsConfig": false,
+        "mdnsMulticast": true,
+        "mdnsInterface": "",
+        "mdnsPort": "",
+        "mdnsIp": "",
+        "mdnsTtl": "",
+        "mdnsLoopback": true,
+        "mdnsReuseAddr": true,
+        "allowMessagePassthrough": true
+    }
+]
