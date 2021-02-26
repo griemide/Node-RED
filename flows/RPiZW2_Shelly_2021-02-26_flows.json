@@ -1,0 +1,112 @@
+[
+    {
+        "id": "d490778c.975168",
+        "type": "tab",
+        "label": "Shelly",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "6abece97.bf2fc",
+        "type": "group",
+        "z": "d490778c.975168",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "6862774c.564268",
+            "4f5c4c30.40ac84",
+            "5c96ef8a.1fa76",
+            "f80cad0c.e5bce"
+        ],
+        "x": 34,
+        "y": 19,
+        "w": 772,
+        "h": 162
+    },
+    {
+        "id": "6862774c.564268",
+        "type": "debug",
+        "z": "d490778c.975168",
+        "g": "6abece97.bf2fc",
+        "name": "Door",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload.sensor.state",
+        "statusType": "jsonata",
+        "x": 710,
+        "y": 140,
+        "wires": [],
+        "info": "payload.sensor.state & \" \" & payload.tmp.tC & \" \" payload.lux.value "
+    },
+    {
+        "id": "4f5c4c30.40ac84",
+        "type": "shelly-door",
+        "z": "d490778c.975168",
+        "g": "6abece97.bf2fc",
+        "hostname": "192.168.0.115",
+        "description": "",
+        "sendfullstatus": true,
+        "usepolling": true,
+        "pollinginterval": 2000,
+        "inputs": 0,
+        "x": 130,
+        "y": 140,
+        "wires": [
+            [
+                "6862774c.564268"
+            ]
+        ]
+    },
+    {
+        "id": "5c96ef8a.1fa76",
+        "type": "inject",
+        "z": "d490778c.975168",
+        "g": "6abece97.bf2fc",
+        "name": "Test json",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "Test",
+        "payload": "{\"wifi_sta\":{\"connected\":true,\"ssid\":\"HP LaserJet P1505n\",\"ip\":\"192.168.0.115\",\"rssi\":-52},\"cloud\":{\"enabled\":true,\"connected\":false},\"mqtt\":{\"connected\":true},\"time\":\"\",\"unixtime\":0,\"serial\":2,\"has_update\":false,\"mac\":\"E8DB84D3D5C1\",\"cfg_changed_cnt\":0,\"actions_stats\":{\"skipped\":0},\"is_valid\":true,\"tmp\":{\"value\":23.3,\"units\":\"C\",\"tC\":23.3,\"tF\":73.94,\"is_valid\":true},\"lux\":{\"value\":69,\"illumination\":\"dark\",\"is_valid\":true},\"accel\":{\"tilt\":89,\"vibration\":0},\"sensor\":{\"state\":\"test OK\",\"is_valid\":true},\"bat\":{\"value\":99,\"voltage\":5.94},\"act_reasons\":[\"button\"],\"update\":{\"status\":\"unknown\",\"has_update\":false,\"new_version\":\"\",\"old_version\":\"20210115-103411/v1.9.4@e2732e05\"},\"ram_total\":51056,\"ram_free\":38528,\"fs_size\":233681,\"fs_free\":145831,\"uptime\":8}",
+        "payloadType": "json",
+        "x": 390,
+        "y": 100,
+        "wires": [
+            [
+                "6862774c.564268"
+            ]
+        ]
+    },
+    {
+        "id": "f80cad0c.e5bce",
+        "type": "comment",
+        "z": "d490778c.975168",
+        "g": "6abece97.bf2fc",
+        "name": "Shelly Door 2",
+        "info": "",
+        "x": 130,
+        "y": 60,
+        "wires": []
+    }
+]
