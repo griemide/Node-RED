@@ -20,6 +20,9 @@ Offizielle Anleitung für [Raspberry Pi](https://nodered.org/docs/getting-starte
 ### Upgrading Node-RED
 ```sudo npm install -g --unsafe-perm node-red```
 
+### Restart Node-RED
+```node-red-stop && node-red-start```
+
 ---
 Raspberry [Pi Projekte](https://github.com/griemide/RPi) using Node-Red.
 
