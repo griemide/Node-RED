@@ -1,0 +1,132 @@
+[
+    {
+        "id": "69f2d313.7387cc",
+        "type": "tab",
+        "label": "MAC address",
+        "disabled": false,
+        "info": "https://www.raspberrypi-spy.co.uk/2012/06/finding-the-mac-address-of-a-raspberry-pi/"
+    },
+    {
+        "id": "e53f2905.b0ec98",
+        "type": "group",
+        "z": "69f2d313.7387cc",
+        "name": "MAC address",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "7ab13c4.b11eec4",
+            "61ac1924.4a2378",
+            "13c646ec.6f37d9",
+            "1acf2878.6cf5f8",
+            "1e519876.6c3ac8"
+        ],
+        "x": 34,
+        "y": 19,
+        "w": 772,
+        "h": 142
+    },
+    {
+        "id": "7ab13c4.b11eec4",
+        "type": "inject",
+        "z": "69f2d313.7387cc",
+        "g": "e53f2905.b0ec98",
+        "name": "cat /sys/class/net/wlan0/address",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "MAC_address",
+        "payload": "cat /sys/class/net/wlan0/address",
+        "payloadType": "str",
+        "x": 210,
+        "y": 80,
+        "wires": [
+            [
+                "61ac1924.4a2378"
+            ]
+        ]
+    },
+    {
+        "id": "61ac1924.4a2378",
+        "type": "exec",
+        "z": "69f2d313.7387cc",
+        "g": "e53f2905.b0ec98",
+        "command": "",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 460,
+        "y": 80,
+        "wires": [
+            [
+                "13c646ec.6f37d9"
+            ],
+            [
+                "1acf2878.6cf5f8"
+            ],
+            [
+                "1acf2878.6cf5f8"
+            ]
+        ]
+    },
+    {
+        "id": "13c646ec.6f37d9",
+        "type": "debug",
+        "z": "69f2d313.7387cc",
+        "g": "e53f2905.b0ec98",
+        "name": "MAC Address",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 680,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "1acf2878.6cf5f8",
+        "type": "debug",
+        "z": "69f2d313.7387cc",
+        "g": "e53f2905.b0ec98",
+        "name": "exec status",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 690,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "1e519876.6c3ac8",
+        "type": "comment",
+        "z": "69f2d313.7387cc",
+        "g": "e53f2905.b0ec98",
+        "name": "select via ' ls /sys/class/net/ '",
+        "info": "",
+        "x": 210,
+        "y": 120,
+        "wires": []
+    }
+]
