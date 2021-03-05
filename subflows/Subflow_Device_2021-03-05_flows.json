@@ -1,0 +1,509 @@
+[
+    {
+        "id": "dd3c5dfd.16197",
+        "type": "group",
+        "z": "cb56fdf1.51198",
+        "name": "SMDS subflow Device",
+        "style": {
+            "label": true,
+            "stroke": "#0070c0"
+        },
+        "nodes": [
+            "88b49cdd.24581",
+            "ea7fdb20.b4dcf8",
+            "809a024c.ad758",
+            "7e45b0.7b1c3a5",
+            "a0e106e3.3316d8",
+            "a8ba1db8.9fbac",
+            "dbb91365.98f1f",
+            "b55b2376.e2166"
+        ],
+        "x": 34,
+        "y": 39,
+        "w": 772,
+        "h": 202
+    },
+    {
+        "id": "671dbe6f.704cd",
+        "type": "subflow",
+        "name": "Device",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 80,
+                "y": 40,
+                "wires": [
+                    {
+                        "id": "72a6c873.5e3408"
+                    },
+                    {
+                        "id": "b99c1425.e46b08"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 760,
+                "y": 280,
+                "wires": [
+                    {
+                        "id": "c4fcbecf.3c531",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 760,
+                "y": 340,
+                "wires": [
+                    {
+                        "id": "eef578dc.fbee68",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 760,
+                "y": 400,
+                "wires": [
+                    {
+                        "id": "e7b64c81.8a138",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "color": "#A6BBCF",
+        "inputLabels": [
+            "trigger only"
+        ],
+        "outputLabels": [
+            "Host",
+            "IPv4",
+            "IPv6"
+        ],
+        "icon": "font-awesome/fa-sitemap",
+        "status": {
+            "x": 760,
+            "y": 220,
+            "wires": [
+                {
+                    "id": "1a48232f.c800ed",
+                    "port": 0
+                }
+            ]
+        }
+    },
+    {
+        "id": "355987e1.5654d8",
+        "type": "exec",
+        "z": "671dbe6f.704cd",
+        "command": "hostname",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "name": "",
+        "x": 420,
+        "y": 160,
+        "wires": [
+            [
+                "c4fcbecf.3c531"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "dee5dc41.f6ccd",
+        "type": "inject",
+        "z": "671dbe6f.704cd",
+        "name": "",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "host",
+        "x": 110,
+        "y": 120,
+        "wires": [
+            [
+                "355987e1.5654d8"
+            ]
+        ]
+    },
+    {
+        "id": "c0277de3.4e73f",
+        "type": "inject",
+        "z": "671dbe6f.704cd",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.2",
+        "topic": "IP",
+        "payload": "-I",
+        "payloadType": "str",
+        "x": 110,
+        "y": 160,
+        "wires": [
+            [
+                "355987e1.5654d8"
+            ]
+        ]
+    },
+    {
+        "id": "c4fcbecf.3c531",
+        "type": "switch",
+        "z": "671dbe6f.704cd",
+        "name": "Topic",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "host",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "IP",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 390,
+        "y": 300,
+        "wires": [
+            [
+                "1a48232f.c800ed"
+            ],
+            [
+                "eef578dc.fbee68",
+                "e7b64c81.8a138"
+            ]
+        ]
+    },
+    {
+        "id": "72a6c873.5e3408",
+        "type": "change",
+        "z": "671dbe6f.704cd",
+        "name": "Get Host",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "host",
+                "tot": "str"
+            },
+            {
+                "t": "delete",
+                "p": "payload",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 240,
+        "y": 80,
+        "wires": [
+            [
+                "355987e1.5654d8"
+            ]
+        ]
+    },
+    {
+        "id": "151dfb3f.5529b5",
+        "type": "change",
+        "z": "671dbe6f.704cd",
+        "name": "Get IP",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "IP",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "-I",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 350,
+        "y": 40,
+        "wires": [
+            [
+                "355987e1.5654d8"
+            ]
+        ]
+    },
+    {
+        "id": "b99c1425.e46b08",
+        "type": "delay",
+        "z": "671dbe6f.704cd",
+        "name": "0.1s",
+        "pauseType": "delay",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 230,
+        "y": 40,
+        "wires": [
+            [
+                "151dfb3f.5529b5"
+            ]
+        ]
+    },
+    {
+        "id": "1a48232f.c800ed",
+        "type": "change",
+        "z": "671dbe6f.704cd",
+        "name": "format",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\t   \"fill\": \"blue \",\t   \"shape\": \"dot\",\t   \"text\": payload \t}",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "eef578dc.fbee68",
+        "type": "change",
+        "z": "671dbe6f.704cd",
+        "name": "substring before",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$substringBefore(payload, \" \")",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 620,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e7b64c81.8a138",
+        "type": "change",
+        "z": "671dbe6f.704cd",
+        "name": "substring after",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$substringAfter(payload, \" \")",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 620,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "88b49cdd.24581",
+        "type": "subflow:671dbe6f.704cd",
+        "z": "cb56fdf1.51198",
+        "g": "dd3c5dfd.16197",
+        "name": "",
+        "env": [],
+        "x": 390,
+        "y": 140,
+        "wires": [
+            [
+                "809a024c.ad758"
+            ],
+            [
+                "7e45b0.7b1c3a5"
+            ],
+            [
+                "a0e106e3.3316d8"
+            ]
+        ]
+    },
+    {
+        "id": "ea7fdb20.b4dcf8",
+        "type": "inject",
+        "z": "cb56fdf1.51198",
+        "g": "dd3c5dfd.16197",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 140,
+        "wires": [
+            [
+                "88b49cdd.24581"
+            ]
+        ]
+    },
+    {
+        "id": "809a024c.ad758",
+        "type": "debug",
+        "z": "cb56fdf1.51198",
+        "g": "dd3c5dfd.16197",
+        "name": "Host",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 710,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "7e45b0.7b1c3a5",
+        "type": "debug",
+        "z": "cb56fdf1.51198",
+        "g": "dd3c5dfd.16197",
+        "name": "IPv4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 590,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "a0e106e3.3316d8",
+        "type": "debug",
+        "z": "cb56fdf1.51198",
+        "g": "dd3c5dfd.16197",
+        "name": "IPv6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 590,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "a8ba1db8.9fbac",
+        "type": "comment",
+        "z": "cb56fdf1.51198",
+        "g": "dd3c5dfd.16197",
+        "name": "inject: any -  used for trigger only",
+        "info": "",
+        "x": 190,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "dbb91365.98f1f",
+        "type": "comment",
+        "z": "cb56fdf1.51198",
+        "g": "dd3c5dfd.16197",
+        "name": "test suite - 1st own subflow design",
+        "info": "",
+        "x": 200,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "b55b2376.e2166",
+        "type": "comment",
+        "z": "cb56fdf1.51198",
+        "g": "dd3c5dfd.16197",
+        "name": "v1.0.0",
+        "info": "",
+        "x": 430,
+        "y": 80,
+        "wires": []
+    }
+]
