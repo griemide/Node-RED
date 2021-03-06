@@ -1,6 +1,7 @@
 # Subflows
 
-Node-RED - User Guide [Subflows](https://nodered.org/docs/user-guide/editor/workspace/subflows)  
+Node-RED - User Guide [Subflows](https://nodered.org/docs/user-guide/editor/workspace/subflows)   
+Node-RED - User Guide [environment variables](https://nodered.org/docs/user-guide/environment-variables)  
 
 ## Device
 
