@@ -1,9 +1,13 @@
 # Device
 
-The subflow is designed to provide the following information on the target device (e.g. Raspberry Pi Zero W):  
-* Hostname
-* IPv4 address
-* IPv6 address
+The subflow is designed to provide the following information of the target device (e.g. Raspberry Pi Zero W).  
+Output:
+1. Hostname
+2. IPv4 address
+3. IPv6 address
+
+Status: 
+* Hostname 
 
 Each output data will be presented as String.
 At deploy the subflow will be triggerd automatically.  
