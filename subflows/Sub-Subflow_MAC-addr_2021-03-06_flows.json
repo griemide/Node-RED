@@ -1,0 +1,858 @@
+[
+    {
+        "id": "5b5a70c5.68e61",
+        "type": "group",
+        "z": "cb56fdf1.51198",
+        "name": "SMDS subflow MAC_addrees usind subflow Device",
+        "style": {
+            "stroke": "#0070c0",
+            "label": true
+        },
+        "nodes": [
+            "5a4fdbc0.f79214",
+            "f979c221.bf077",
+            "e862ed4c.342e1",
+            "c9217a6a.ce9238",
+            "dbc8ad03.d433a",
+            "95dfa1f4.df14e",
+            "ace7edc6.34a44"
+        ],
+        "x": 34,
+        "y": 279,
+        "w": 772,
+        "h": 202
+    },
+    {
+        "id": "671dbe6f.704cd",
+        "type": "subflow",
+        "name": "Device",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 80,
+                "y": 40,
+                "wires": [
+                    {
+                        "id": "72a6c873.5e3408"
+                    },
+                    {
+                        "id": "b99c1425.e46b08"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 760,
+                "y": 280,
+                "wires": [
+                    {
+                        "id": "c4fcbecf.3c531",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 760,
+                "y": 340,
+                "wires": [
+                    {
+                        "id": "eef578dc.fbee68",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 760,
+                "y": 400,
+                "wires": [
+                    {
+                        "id": "e7b64c81.8a138",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "color": "#A6BBCF",
+        "inputLabels": [
+            "trigger only"
+        ],
+        "outputLabels": [
+            "Host",
+            "IPv4",
+            "IPv6"
+        ],
+        "icon": "font-awesome/fa-sitemap",
+        "status": {
+            "x": 760,
+            "y": 220,
+            "wires": [
+                {
+                    "id": "1a48232f.c800ed",
+                    "port": 0
+                }
+            ]
+        }
+    },
+    {
+        "id": "355987e1.5654d8",
+        "type": "exec",
+        "z": "671dbe6f.704cd",
+        "command": "hostname",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "name": "",
+        "x": 420,
+        "y": 160,
+        "wires": [
+            [
+                "c4fcbecf.3c531"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "dee5dc41.f6ccd",
+        "type": "inject",
+        "z": "671dbe6f.704cd",
+        "name": "",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "host",
+        "x": 110,
+        "y": 120,
+        "wires": [
+            [
+                "355987e1.5654d8"
+            ]
+        ]
+    },
+    {
+        "id": "c0277de3.4e73f",
+        "type": "inject",
+        "z": "671dbe6f.704cd",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.2",
+        "topic": "IP",
+        "payload": "-I",
+        "payloadType": "str",
+        "x": 110,
+        "y": 160,
+        "wires": [
+            [
+                "355987e1.5654d8"
+            ]
+        ]
+    },
+    {
+        "id": "c4fcbecf.3c531",
+        "type": "switch",
+        "z": "671dbe6f.704cd",
+        "name": "Topic",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "host",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "IP",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 390,
+        "y": 300,
+        "wires": [
+            [
+                "1a48232f.c800ed"
+            ],
+            [
+                "eef578dc.fbee68",
+                "e7b64c81.8a138"
+            ]
+        ]
+    },
+    {
+        "id": "72a6c873.5e3408",
+        "type": "change",
+        "z": "671dbe6f.704cd",
+        "name": "Get Host",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "host",
+                "tot": "str"
+            },
+            {
+                "t": "delete",
+                "p": "payload",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 240,
+        "y": 80,
+        "wires": [
+            [
+                "355987e1.5654d8"
+            ]
+        ]
+    },
+    {
+        "id": "151dfb3f.5529b5",
+        "type": "change",
+        "z": "671dbe6f.704cd",
+        "name": "Get IP",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "IP",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "-I",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 350,
+        "y": 40,
+        "wires": [
+            [
+                "355987e1.5654d8"
+            ]
+        ]
+    },
+    {
+        "id": "b99c1425.e46b08",
+        "type": "delay",
+        "z": "671dbe6f.704cd",
+        "name": "0.1s",
+        "pauseType": "delay",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 230,
+        "y": 40,
+        "wires": [
+            [
+                "151dfb3f.5529b5"
+            ]
+        ]
+    },
+    {
+        "id": "1a48232f.c800ed",
+        "type": "change",
+        "z": "671dbe6f.704cd",
+        "name": "format",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\t   \"fill\": \"blue \",\t   \"shape\": \"dot\",\t   \"text\": payload \t}",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "eef578dc.fbee68",
+        "type": "change",
+        "z": "671dbe6f.704cd",
+        "name": "substring before",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$substringBefore(payload, \" \")",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 620,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e7b64c81.8a138",
+        "type": "change",
+        "z": "671dbe6f.704cd",
+        "name": "substring after",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$substringAfter(payload, \" \")",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 620,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e629e30d.cf3b7",
+        "type": "subflow",
+        "name": "MAC_addr",
+        "info": "https://nodered.org/docs/user-guide/editor/workspace/subflows",
+        "category": "",
+        "in": [
+            {
+                "x": 50,
+                "y": 50,
+                "wires": [
+                    {
+                        "id": "f5b85b54.9b0568"
+                    },
+                    {
+                        "id": "95b3b554.164808"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 780,
+                "y": 60,
+                "wires": [
+                    {
+                        "id": "f5b85b54.9b0568",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 780,
+                "y": 260,
+                "wires": [
+                    {
+                        "id": "9a303b73.5f4d78",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [
+            {
+                "name": "debug",
+                "type": "bool",
+                "value": "false",
+                "ui": {
+                    "icon": "font-awesome/fa-print",
+                    "type": "checkbox"
+                }
+            }
+        ],
+        "color": "#A6BBCF",
+        "icon": "font-awesome/fa-address-card",
+        "status": {
+            "x": 780,
+            "y": 180,
+            "wires": [
+                {
+                    "id": "b71540e3.45efd",
+                    "port": 0
+                }
+            ]
+        }
+    },
+    {
+        "id": "f5b85b54.9b0568",
+        "type": "subflow:671dbe6f.704cd",
+        "z": "e629e30d.cf3b7",
+        "name": "",
+        "x": 530,
+        "y": 60,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "9a303b73.5f4d78",
+        "type": "exec",
+        "z": "e629e30d.cf3b7",
+        "command": "exec",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 470,
+        "y": 320,
+        "wires": [
+            [
+                "55c8c220.b32fec",
+                "5eb0b6a5.f4d788"
+            ],
+            [
+                "4523f19e.ea7ee"
+            ],
+            [
+                "4523f19e.ea7ee"
+            ]
+        ]
+    },
+    {
+        "id": "dffca7dd.ac96e8",
+        "type": "inject",
+        "z": "e629e30d.cf3b7",
+        "name": "cat /sys/class/net/wlan0/address",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "MAC_address",
+        "payload": "cat /sys/class/net/wlan0/address",
+        "payloadType": "str",
+        "x": 190,
+        "y": 320,
+        "wires": [
+            [
+                "9a303b73.5f4d78"
+            ]
+        ]
+    },
+    {
+        "id": "55c8c220.b32fec",
+        "type": "debug",
+        "z": "e629e30d.cf3b7",
+        "name": "MAC Addr",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "$substring(payload, 0, 17)",
+        "statusType": "jsonata",
+        "x": 730,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "4523f19e.ea7ee",
+        "type": "debug",
+        "z": "e629e30d.cf3b7",
+        "name": "exec status",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "95b3b554.164808",
+        "type": "change",
+        "z": "e629e30d.cf3b7",
+        "name": "cat /sys/class/net/wlan0/address",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "cat /sys/class/net/wlan0/address",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "MAC_address",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 190,
+        "y": 280,
+        "wires": [
+            [
+                "9a303b73.5f4d78"
+            ]
+        ]
+    },
+    {
+        "id": "5eb0b6a5.f4d788",
+        "type": "switch",
+        "z": "e629e30d.cf3b7",
+        "name": "Topic",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "host",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "MAC_address",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "IP",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 410,
+        "y": 200,
+        "wires": [
+            [],
+            [
+                "615563a.7a4aa9c",
+                "b71540e3.45efd"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "b71540e3.45efd",
+        "type": "change",
+        "z": "e629e30d.cf3b7",
+        "name": "format",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\t   \"fill\": \"blue \",\t   \"shape\": \"dot\",\t   \"text\": payload \t}",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 610,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ed650318.1ff63",
+        "type": "debug",
+        "z": "e629e30d.cf3b7",
+        "name": "exec err",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "8f0496cf.f515b8",
+        "type": "switch",
+        "z": "e629e30d.cf3b7",
+        "name": "true",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 610,
+        "y": 120,
+        "wires": [
+            [
+                "4feeb6e9.2181b8"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "615563a.7a4aa9c",
+        "type": "change",
+        "z": "e629e30d.cf3b7",
+        "name": "debug",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "debug",
+                "tot": "env"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 470,
+        "y": 120,
+        "wires": [
+            [
+                "8f0496cf.f515b8"
+            ]
+        ],
+        "icon": "font-awesome/fa-dollar"
+    },
+    {
+        "id": "4feeb6e9.2181b8",
+        "type": "debug",
+        "z": "e629e30d.cf3b7",
+        "name": "Debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 750,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "5f408766.e9cf08",
+        "type": "catch",
+        "z": "e629e30d.cf3b7",
+        "name": "exec",
+        "scope": [
+            "9a303b73.5f4d78"
+        ],
+        "uncaught": false,
+        "x": 470,
+        "y": 400,
+        "wires": [
+            [
+                "ed650318.1ff63"
+            ]
+        ]
+    },
+    {
+        "id": "5a4fdbc0.f79214",
+        "type": "subflow:e629e30d.cf3b7",
+        "z": "cb56fdf1.51198",
+        "g": "5b5a70c5.68e61",
+        "name": "",
+        "env": [],
+        "x": 400,
+        "y": 380,
+        "wires": [
+            [
+                "c9217a6a.ce9238"
+            ],
+            [
+                "e862ed4c.342e1"
+            ]
+        ]
+    },
+    {
+        "id": "f979c221.bf077",
+        "type": "inject",
+        "z": "cb56fdf1.51198",
+        "g": "5b5a70c5.68e61",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 380,
+        "wires": [
+            [
+                "5a4fdbc0.f79214"
+            ]
+        ]
+    },
+    {
+        "id": "e862ed4c.342e1",
+        "type": "debug",
+        "z": "cb56fdf1.51198",
+        "g": "5b5a70c5.68e61",
+        "name": "MAC_address",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 680,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "c9217a6a.ce9238",
+        "type": "debug",
+        "z": "cb56fdf1.51198",
+        "g": "5b5a70c5.68e61",
+        "name": "Host",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 710,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "dbc8ad03.d433a",
+        "type": "comment",
+        "z": "cb56fdf1.51198",
+        "g": "5b5a70c5.68e61",
+        "name": "inject: any -  used for trigger only",
+        "info": "",
+        "x": 190,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "95dfa1f4.df14e",
+        "type": "comment",
+        "z": "cb56fdf1.51198",
+        "g": "5b5a70c5.68e61",
+        "name": "test suite - 1st own sub-subflow design",
+        "info": "",
+        "x": 210,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "ace7edc6.34a44",
+        "type": "comment",
+        "z": "cb56fdf1.51198",
+        "g": "5b5a70c5.68e61",
+        "name": "v1.0.0",
+        "info": " ",
+        "x": 470,
+        "y": 320,
+        "wires": []
+    }
+]
