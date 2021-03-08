@@ -23,6 +23,16 @@ Offizielle Anleitung für [Raspberry Pi](https://nodered.org/docs/getting-starte
 ### Restart Node-RED
 ```node-red-stop && node-red-start```
 
+### Backup
+Back up following files within **```/home/pi/.node-red```** by using sftp service (e.g. **FileZilla**):  
+* flow.json, 
+* settings.js, 
+* package.json, and 
+* package-lock.json.
+
+Then, to restore them, copy those files back over, open the folder in a terminal, and type **```npm install```**.   
+That should get everything right back to where it was.  
+
 ---
 Raspberry [Pi Projekte](https://github.com/griemide/RPi) using Node-Red.
 
