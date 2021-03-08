@@ -26,6 +26,7 @@ Offizielle Anleitung für [Raspberry Pi](https://nodered.org/docs/getting-starte
 ### Backup
 Back up following files within **```/home/pi/.node-red```** by using sftp service (e.g. **FileZilla**):  
 * flow.json, 
+* flows_cred.json,
 * settings.js, 
 * package.json, and 
 * package-lock.json.
