@@ -12,6 +12,11 @@ Note: click onto picture to see corresponding subflow design. Test Suite [flow](
 The subflow is designed to provide the following information of the target device: **Hostname, IPv4 address, IPv6 address**  
 Note: click onto picture to see corresponding subflow design. Test Suite [flow](Sub-Subflow_MAC-addr_2021-03-06_flows.json)
 [![MAC_addr](Sub-Subflow_MAC-addr_2021-03-06_flows.jpg)](MAC_addr/readme.md)  
+
+## SSID
+The subflow is designed to provide the following information of the target device: **SSID**  
+Note: click onto picture to see corresponding subflow design. Test Suite [flow](Sub-Subflow_MAC-addr_2021-03-06_flows.json)
+[![SSID](Subflow_SSID_2021-03-09_flows.jpg)](SSID/readme.md)  
 ![]()  
 ![]()  
 ![]()  
