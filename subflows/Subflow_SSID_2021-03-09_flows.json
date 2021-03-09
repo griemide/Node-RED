@@ -1,0 +1,272 @@
+[
+    {
+        "id": "e0d836b6.3a3b48",
+        "type": "group",
+        "z": "cb56fdf1.51198",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "75cda760.628b18",
+            "fcc8c46e.14a938",
+            "dd623333.5c76d",
+            "c2015c81.74f19",
+            "624d8de8.9ead34",
+            "2734210f.ca0c8e",
+            "73294f4e.c51f7"
+        ],
+        "x": 34,
+        "y": 519,
+        "w": 772,
+        "h": 202
+    },
+    {
+        "id": "7e4d7294.bd296c",
+        "type": "subflow",
+        "name": "SSID",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 60,
+                "y": 100,
+                "wires": [
+                    {
+                        "id": "489c2fd7.5f6c3"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 580,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "835c377c.97e658",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "color": "#A6BBCF",
+        "icon": "font-awesome/fa-wifi",
+        "status": {
+            "x": 580,
+            "y": 180,
+            "wires": [
+                {
+                    "id": "11ac4521.0db02b",
+                    "port": 0
+                }
+            ]
+        }
+    },
+    {
+        "id": "489c2fd7.5f6c3",
+        "type": "exec",
+        "z": "7e4d7294.bd296c",
+        "command": "iwgetid -r",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 240,
+        "y": 120,
+        "wires": [
+            [
+                "835c377c.97e658"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "835c377c.97e658",
+        "type": "function",
+        "z": "7e4d7294.bd296c",
+        "name": "Get SSID",
+        "func": "edit = msg.payload\nmsg.payload = edit.replace(/(\\r\\n|\\n|\\r)/gm,\"\")\nmsg.topic = 'SSID'\nglobal.set('SSID_wlan0', msg.payload)\nnode.status({fill: \"green\" ,shape:\"dot\", text: msg.payload});\nflow.set('SSID', msg.payload)\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 440,
+        "y": 80,
+        "wires": [
+            [
+                "11ac4521.0db02b"
+            ]
+        ]
+    },
+    {
+        "id": "41ef9696.827d98",
+        "type": "inject",
+        "z": "7e4d7294.bd296c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "10",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 220,
+        "wires": [
+            [
+                "489c2fd7.5f6c3"
+            ]
+        ]
+    },
+    {
+        "id": "11ac4521.0db02b",
+        "type": "change",
+        "z": "7e4d7294.bd296c",
+        "name": "format",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\t   \"fill\": \"blue \",\t   \"shape\": \"dot\",\t   \"text\": payload \t}",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 430,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "75cda760.628b18",
+        "type": "inject",
+        "z": "cb56fdf1.51198",
+        "g": "e0d836b6.3a3b48",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "10",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 620,
+        "wires": [
+            [
+                "dd623333.5c76d"
+            ]
+        ]
+    },
+    {
+        "id": "fcc8c46e.14a938",
+        "type": "debug",
+        "z": "cb56fdf1.51198",
+        "g": "e0d836b6.3a3b48",
+        "name": "SSID (wlan0)",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 690,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "dd623333.5c76d",
+        "type": "subflow:7e4d7294.bd296c",
+        "z": "cb56fdf1.51198",
+        "g": "e0d836b6.3a3b48",
+        "name": "",
+        "env": [],
+        "x": 390,
+        "y": 620,
+        "wires": [
+            [
+                "fcc8c46e.14a938"
+            ]
+        ]
+    },
+    {
+        "id": "c2015c81.74f19",
+        "type": "comment",
+        "z": "cb56fdf1.51198",
+        "g": "e0d836b6.3a3b48",
+        "name": "test suite - subflow SSID (using 'iwgetid -r')",
+        "info": "",
+        "x": 220,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "624d8de8.9ead34",
+        "type": "comment",
+        "z": "cb56fdf1.51198",
+        "g": "e0d836b6.3a3b48",
+        "name": "v1.0.0",
+        "info": " ",
+        "x": 490,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "2734210f.ca0c8e",
+        "type": "comment",
+        "z": "cb56fdf1.51198",
+        "g": "e0d836b6.3a3b48",
+        "name": "inject: any -  used for trigger only",
+        "info": "",
+        "x": 190,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "73294f4e.c51f7",
+        "type": "comment",
+        "z": "cb56fdf1.51198",
+        "g": "e0d836b6.3a3b48",
+        "name": "dedug information can be configured in SSID node",
+        "info": "",
+        "x": 590,
+        "y": 680,
+        "wires": []
+    }
+]
