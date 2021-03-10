@@ -45,8 +45,8 @@
         ],
         "out": [
             {
-                "x": 580,
-                "y": 80,
+                "x": 780,
+                "y": 100,
                 "wires": [
                     {
                         "id": "835c377c.97e658",
@@ -59,8 +59,8 @@
         "color": "#A6BBCF",
         "icon": "font-awesome/fa-wifi",
         "status": {
-            "x": 580,
-            "y": 180,
+            "x": 780,
+            "y": 160,
             "wires": [
                 {
                     "id": "11ac4521.0db02b",
@@ -80,14 +80,18 @@
         "timer": "",
         "oldrc": false,
         "name": "",
-        "x": 240,
-        "y": 120,
+        "x": 300,
+        "y": 100,
         "wires": [
             [
                 "835c377c.97e658"
             ],
-            [],
-            []
+            [
+                "e08607be.78f138"
+            ],
+            [
+                "e08607be.78f138"
+            ]
         ]
     },
     {
@@ -95,13 +99,13 @@
         "type": "function",
         "z": "7e4d7294.bd296c",
         "name": "Get SSID",
-        "func": "edit = msg.payload\nmsg.payload = edit.replace(/(\\r\\n|\\n|\\r)/gm,\"\")\nmsg.topic = 'SSID'\nglobal.set('SSID_wlan0', msg.payload)\nnode.status({fill: \"green\" ,shape:\"dot\", text: msg.payload});\nflow.set('SSID', msg.payload)\n\nreturn msg;",
+        "func": "edit = msg.payload;\nmsg.payload = edit.replace(/(\\r\\n|\\n|\\r)/gm,\"\");\n// msg.topic = \"SSID\";\nmsg.topic = msg.topic;\nglobal.set('SSID_wlan0', msg.payload);\nnode.status({fill: \"green\" ,shape:\"dot\", text: msg.payload});\nflow.set('SSID', msg.payload);\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 440,
-        "y": 80,
+        "x": 480,
+        "y": 100,
         "wires": [
             [
                 "11ac4521.0db02b"
@@ -126,11 +130,11 @@
         "crontab": "",
         "once": true,
         "onceDelay": "10",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 110,
-        "y": 220,
+        "topic": "ssid",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 120,
+        "y": 160,
         "wires": [
             [
                 "489c2fd7.5f6c3"
@@ -156,11 +160,38 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 430,
-        "y": 180,
+        "x": 690,
+        "y": 160,
         "wires": [
             []
         ]
+    },
+    {
+        "id": "52828bd6.b9b6b4",
+        "type": "comment",
+        "z": "7e4d7294.bd296c",
+        "name": "subflow SSID (using 'iwgetid -r')",
+        "info": "",
+        "x": 370,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "e08607be.78f138",
+        "type": "debug",
+        "z": "7e4d7294.bd296c",
+        "name": "Debug SSID",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 490,
+        "y": 160,
+        "wires": []
     },
     {
         "id": "75cda760.628b18",
@@ -181,10 +212,10 @@
         "crontab": "",
         "once": false,
         "onceDelay": "10",
-        "topic": "",
+        "topic": "ssid",
         "payload": "",
         "payloadType": "date",
-        "x": 140,
+        "x": 160,
         "y": 620,
         "wires": [
             [
@@ -202,8 +233,8 @@
         "tosidebar": true,
         "console": false,
         "tostatus": true,
-        "complete": "payload",
-        "targetType": "msg",
+        "complete": "true",
+        "targetType": "full",
         "statusVal": "payload",
         "statusType": "auto",
         "x": 690,
@@ -230,9 +261,9 @@
         "type": "comment",
         "z": "cb56fdf1.51198",
         "g": "e0d836b6.3a3b48",
-        "name": "test suite - subflow SSID (using 'iwgetid -r')",
+        "name": "test suite - subflow SSID",
         "info": "",
-        "x": 220,
+        "x": 170,
         "y": 560,
         "wires": []
     },
@@ -241,9 +272,9 @@
         "type": "comment",
         "z": "cb56fdf1.51198",
         "g": "e0d836b6.3a3b48",
-        "name": "v1.0.0",
+        "name": "v1.0.1",
         "info": " ",
-        "x": 490,
+        "x": 730,
         "y": 560,
         "wires": []
     },
@@ -252,7 +283,7 @@
         "type": "comment",
         "z": "cb56fdf1.51198",
         "g": "e0d836b6.3a3b48",
-        "name": "inject: any -  used for trigger only",
+        "name": "inject: any (used for trigger only)",
         "info": "",
         "x": 190,
         "y": 680,
@@ -263,7 +294,7 @@
         "type": "comment",
         "z": "cb56fdf1.51198",
         "g": "e0d836b6.3a3b48",
-        "name": "dedug information can be configured in SSID node",
+        "name": "Auto trigger 10 seconds after deploy.preconfigured",
         "info": "",
         "x": 590,
         "y": 680,
