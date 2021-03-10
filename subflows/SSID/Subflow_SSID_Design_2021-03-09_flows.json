@@ -1,0 +1,169 @@
+[
+    {
+        "id": "7e4d7294.bd296c",
+        "type": "subflow",
+        "name": "SSID",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 60,
+                "y": 100,
+                "wires": [
+                    {
+                        "id": "489c2fd7.5f6c3"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 780,
+                "y": 100,
+                "wires": [
+                    {
+                        "id": "835c377c.97e658",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "color": "#A6BBCF",
+        "icon": "font-awesome/fa-wifi",
+        "status": {
+            "x": 780,
+            "y": 160,
+            "wires": [
+                {
+                    "id": "11ac4521.0db02b",
+                    "port": 0
+                }
+            ]
+        }
+    },
+    {
+        "id": "489c2fd7.5f6c3",
+        "type": "exec",
+        "z": "7e4d7294.bd296c",
+        "command": "iwgetid -r",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 300,
+        "y": 100,
+        "wires": [
+            [
+                "835c377c.97e658"
+            ],
+            [
+                "e08607be.78f138"
+            ],
+            [
+                "e08607be.78f138"
+            ]
+        ]
+    },
+    {
+        "id": "835c377c.97e658",
+        "type": "function",
+        "z": "7e4d7294.bd296c",
+        "name": "Get SSID",
+        "func": "edit = msg.payload;\nmsg.payload = edit.replace(/(\\r\\n|\\n|\\r)/gm,\"\");\n// msg.topic = \"SSID\";\nmsg.topic = msg.topic;\nglobal.set('SSID_wlan0', msg.payload);\nnode.status({fill: \"green\" ,shape:\"dot\", text: msg.payload});\nflow.set('SSID', msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 480,
+        "y": 100,
+        "wires": [
+            [
+                "11ac4521.0db02b"
+            ]
+        ]
+    },
+    {
+        "id": "41ef9696.827d98",
+        "type": "inject",
+        "z": "7e4d7294.bd296c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "10",
+        "topic": "ssid",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 120,
+        "y": 160,
+        "wires": [
+            [
+                "489c2fd7.5f6c3"
+            ]
+        ]
+    },
+    {
+        "id": "11ac4521.0db02b",
+        "type": "change",
+        "z": "7e4d7294.bd296c",
+        "name": "format",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\t   \"fill\": \"blue \",\t   \"shape\": \"dot\",\t   \"text\": payload \t}",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 690,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "52828bd6.b9b6b4",
+        "type": "comment",
+        "z": "7e4d7294.bd296c",
+        "name": "subflow SSID (using 'iwgetid -r')",
+        "info": "",
+        "x": 370,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "e08607be.78f138",
+        "type": "debug",
+        "z": "7e4d7294.bd296c",
+        "name": "Debug SSID",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 490,
+        "y": 160,
+        "wires": []
+    }
+]
