@@ -15,8 +15,14 @@ Note: click onto picture to see corresponding subflow design. Test Suite [flow](
 
 ## SSID
 The subflow is designed to provide the following information of the target device: **SSID**  
-Note: click onto picture to see corresponding subflow design. Test Suite [flow](Sub-Subflow_MAC-addr_2021-03-06_flows.json)
+Note: click onto picture to see corresponding subflow design. Test Suite [flow](Subflow_SSID_2021-03-09_flows.json)
 [![SSID](Subflow_SSID_2021-03-09_flows.jpg)](SSID/readme.md)  
+
+## Toggle
+The subflow is designed that any input trigger the output which **toggles** between true and false.  
+Test Suite [flow](Subflow_Toggle_2021-03-10_flows.json)  
+![Toggle](Subflow_Toggle_2021-03-10_flows.jpg)
+
 ![]()  
 ![]()  
 ![]()  
