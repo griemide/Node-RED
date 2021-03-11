@@ -1,0 +1,204 @@
+[
+    {
+        "id": "a91fe514.e76308",
+        "type": "group",
+        "z": "cb56fdf1.51198",
+        "name": "SMDS subflow Toggle",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "9b1ee4e4.ed5898",
+            "c41a44d0.596118",
+            "7de4e327.012c9c",
+            "e5a695ab.3d9d08",
+            "b10d33c4.f3ec4",
+            "46ac91c6.f6d82",
+            "95e73294.ed8e1",
+            "b6fcfc51.3dca8"
+        ],
+        "x": 34,
+        "y": 759,
+        "w": 772,
+        "h": 202,
+        "info": "# SMDS\nSoftware Module Design Specification\n\n## Test Suite\nNode-RED subflow `Toggle`  \nGAMP 5 Cat. 4 \n\n### References\nDetails see [Github](https://github.com/griemide/Node-RED/tree/main/subflows)"
+    },
+    {
+        "id": "5e08bfc2.aad11",
+        "type": "subflow",
+        "name": "Toggle",
+        "info": "# Toggle Switch Subflow\r\nAny input trigger the output which alternates between `true` and `false`. \r\n\r\n### Details\r\n#### Input\r\n\r\n<dl class=\"message-properties\">\r\n    <dt>payload\r\n        <span class=\"property-type\">string | buffer</span>\r\n    </dt>\r\n    <dd> the payload of the message to publish. </dd>\r\n    <dt class=\"optional\">topic\r\n        <span class=\"property-type\">string</span>\r\n    </dt>\r\n    <dd> no topic required</dd>\r\n</dl>\r\n\r\nThe current status is displayed with **on** / **off** and status dot (green / red)\r\n\r\n#### Outputs\r\n<ol class=\"node-ports\">\r\n    <li>Standard output\r\n        <dl class=\"message-properties\">\r\n            <dt>payload <span class=\"property-type\">boolean</span></dt>\r\n            <dd>the standard output of the command.</dd>\r\n        </dl>\r\n    </li>\r\n    <li>Standard error\r\n        <dl class=\"message-properties\">\r\n            <dt>payload <span class=\"property-type\">string</span></dt>\r\n            <dd>the node status</dd>\r\n        </dl>\r\n    </li>\r\n</ol>\r\n\r\n\r\n\r\n### References\r\n\r\n * Node-RED [Collection](https://flows.nodered.org/search?type=collection) see source for details\r\n * Node-RED [Source](https://flows.nodered.org/flow/15c17f3445639d90139f4b05113f4a8d/in/frCpf3wk4HWP)\r\n * Node-RED [Node help style guide](https://nodered.org/docs/creating-nodes/help-style-guide#undefined) - this format",
+        "category": "",
+        "in": [
+            {
+                "x": 180,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "64ea9d57.d52e34"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 440,
+                "y": 40,
+                "wires": [
+                    {
+                        "id": "64ea9d57.d52e34",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "color": "#DDAA99",
+        "icon": "font-awesome/fa-toggle-on",
+        "status": {
+            "x": 440,
+            "y": 120,
+            "wires": [
+                {
+                    "id": "64ea9d57.d52e34",
+                    "port": 1
+                }
+            ]
+        }
+    },
+    {
+        "id": "64ea9d57.d52e34",
+        "type": "function",
+        "z": "5e08bfc2.aad11",
+        "name": "toggle script",
+        "func": "var toggle = flow.get(\"toggle\") || false;\nvar status = {};\n\nif (toggle === true) {\n    msg.payload = false;\n    flow.set(\"toggle\", false);\n    status.payload = {fill:\"red\",shape:\"ring\",text:\"off\"};\n} else {\n    msg.payload = true;\n    flow.set(\"toggle\", true);\n    status.payload = {fill:\"green\",shape:\"dot\",text:\"on\"};\n}\n\nreturn [msg,status];",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 310,
+        "y": 80,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "9b1ee4e4.ed5898",
+        "type": "subflow:5e08bfc2.aad11",
+        "z": "cb56fdf1.51198",
+        "g": "a91fe514.e76308",
+        "name": "",
+        "env": [],
+        "x": 510,
+        "y": 860,
+        "wires": [
+            [
+                "7de4e327.012c9c"
+            ]
+        ]
+    },
+    {
+        "id": "c41a44d0.596118",
+        "type": "inject",
+        "z": "cb56fdf1.51198",
+        "g": "a91fe514.e76308",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 860,
+        "wires": [
+            [
+                "9b1ee4e4.ed5898"
+            ]
+        ]
+    },
+    {
+        "id": "7de4e327.012c9c",
+        "type": "debug",
+        "z": "cb56fdf1.51198",
+        "g": "a91fe514.e76308",
+        "name": "Toggle",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 710,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "e5a695ab.3d9d08",
+        "type": "comment",
+        "z": "cb56fdf1.51198",
+        "g": "a91fe514.e76308",
+        "name": "test suite - subflow Toogle",
+        "info": "\n# References\n\n * [Collection](https://flows.nodered.org/search?type=collection)\n * [Source](https://flows.nodered.org/flow/15c17f3445639d90139f4b05113f4a8d/in/frCpf3wk4HWP)\n * Node-RED [Node help style guide](https://nodered.org/docs/creating-nodes/help-style-guide#undefined) - this ",
+        "x": 170,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "b10d33c4.f3ec4",
+        "type": "comment",
+        "z": "cb56fdf1.51198",
+        "g": "a91fe514.e76308",
+        "name": "v1.0.1",
+        "info": " ",
+        "x": 730,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "46ac91c6.f6d82",
+        "type": "comment",
+        "z": "cb56fdf1.51198",
+        "g": "a91fe514.e76308",
+        "name": "Auto trigger each second",
+        "info": "",
+        "x": 170,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "95e73294.ed8e1",
+        "type": "comment",
+        "z": "cb56fdf1.51198",
+        "g": "a91fe514.e76308",
+        "name": "Source:Node-RED collection",
+        "info": "[pinguinpfleger](https://flows.nodered.org/flow/15c17f3445639d90139f4b05113f4a8d/in/frCpf3wk4HWP)",
+        "x": 440,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "b6fcfc51.3dca8",
+        "type": "comment",
+        "z": "cb56fdf1.51198",
+        "g": "a91fe514.e76308",
+        "name": "Author: pinguinpfleger",
+        "info": "[pinguinpfleger](https://flows.nodered.org/flow/15c17f3445639d90139f4b05113f4a8d/in/frCpf3wk4HWP)",
+        "x": 680,
+        "y": 920,
+        "wires": []
+    }
+]
