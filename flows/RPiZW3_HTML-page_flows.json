@@ -1,0 +1,250 @@
+[
+    {
+        "id": "22852220.657a9e",
+        "type": "group",
+        "z": "953b31d6.01fac",
+        "name": "HTML basic example <localhost>",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "1fb5b735.fe0c19",
+            "9937231f.9ad72",
+            "5772c7a4.88af08",
+            "d1ba6870.407b58",
+            "b39b0d74.a3387",
+            "3c30eb27.fedb64",
+            "cd827257.b711d",
+            "78bb1e7f.f00fd",
+            "4fa9137a.8abd3c",
+            "27aa12da.d35b4e",
+            "9fc2a5f5.b44db8",
+            "ffd52e23.72e5d"
+        ],
+        "x": 34,
+        "y": 1359,
+        "w": 772,
+        "h": 322,
+        "info": "# Test link\n\nGet [http://rpizw3.local:1880/status](http://rpizw3.local:1880/status)\n\n### References\nSource [Node Red Cookbook](https://cookbook.nodered.org/http/create-an-http-endpoint#problem)\n\nWiki [HTML-Struktur](https://de.wikipedia.org/wiki/Hypertext_Markup_Language#HTML-Struktur)"
+    },
+    {
+        "id": "1fb5b735.fe0c19",
+        "type": "http in",
+        "z": "953b31d6.01fac",
+        "g": "22852220.657a9e",
+        "name": "",
+        "url": "/status",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 130,
+        "y": 1460,
+        "wires": [
+            [
+                "b39b0d74.a3387",
+                "3c30eb27.fedb64"
+            ]
+        ]
+    },
+    {
+        "id": "9937231f.9ad72",
+        "type": "template",
+        "z": "953b31d6.01fac",
+        "g": "22852220.657a9e",
+        "name": "/status",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<html>\n    <head>\n        <title>{{payload.title}}</title>\n        <!-- additional header data  -->\n    </head>\n    <body>\n        <h1>{{payload.body}}</h1>\n    </body>\n</html>",
+        "x": 550,
+        "y": 1460,
+        "wires": [
+            [
+                "5772c7a4.88af08"
+            ]
+        ],
+        "info": "Get [status](http://rpizw3.local:1880/status)"
+    },
+    {
+        "id": "5772c7a4.88af08",
+        "type": "http response",
+        "z": "953b31d6.01fac",
+        "g": "22852220.657a9e",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 730,
+        "y": 1460,
+        "wires": []
+    },
+    {
+        "id": "d1ba6870.407b58",
+        "type": "comment",
+        "z": "953b31d6.01fac",
+        "g": "22852220.657a9e",
+        "name": "Link: http://rpizw3.local:1880/status",
+        "info": "Get [status](http://rpizw3.local:1880/status)",
+        "x": 640,
+        "y": 1500,
+        "wires": []
+    },
+    {
+        "id": "b39b0d74.a3387",
+        "type": "debug",
+        "z": "953b31d6.01fac",
+        "g": "22852220.657a9e",
+        "name": "Request status",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "\"Complete: \" & req.complete",
+        "statusType": "jsonata",
+        "x": 360,
+        "y": 1500,
+        "wires": []
+    },
+    {
+        "id": "3c30eb27.fedb64",
+        "type": "change",
+        "z": "953b31d6.01fac",
+        "g": "22852220.657a9e",
+        "name": "set  payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.title",
+                "pt": "msg",
+                "to": "Status",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.body",
+                "pt": "msg",
+                "to": "Hello World",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 350,
+        "y": 1460,
+        "wires": [
+            [
+                "9937231f.9ad72",
+                "9fc2a5f5.b44db8"
+            ]
+        ]
+    },
+    {
+        "id": "cd827257.b711d",
+        "type": "http request",
+        "z": "953b31d6.01fac",
+        "g": "22852220.657a9e",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": false,
+        "url": "",
+        "persist": false,
+        "authType": "",
+        "x": 450,
+        "y": 1640,
+        "wires": [
+            [
+                "4fa9137a.8abd3c"
+            ]
+        ]
+    },
+    {
+        "id": "78bb1e7f.f00fd",
+        "type": "inject",
+        "z": "953b31d6.01fac",
+        "g": "22852220.657a9e",
+        "name": "http://rpizw3.local:1880/status",
+        "props": [
+            {
+                "p": "url",
+                "v": "http://rpizw3.local:1880/status",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "x": 210,
+        "y": 1640,
+        "wires": [
+            [
+                "cd827257.b711d"
+            ]
+        ]
+    },
+    {
+        "id": "4fa9137a.8abd3c",
+        "type": "debug",
+        "z": "953b31d6.01fac",
+        "g": "22852220.657a9e",
+        "name": "Response",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "\"Status Code: \" & statusCode",
+        "statusType": "jsonata",
+        "x": 700,
+        "y": 1640,
+        "wires": []
+    },
+    {
+        "id": "27aa12da.d35b4e",
+        "type": "comment",
+        "z": "953b31d6.01fac",
+        "g": "22852220.657a9e",
+        "name": "Define HTML page",
+        "info": "",
+        "x": 150,
+        "y": 1400,
+        "wires": []
+    },
+    {
+        "id": "9fc2a5f5.b44db8",
+        "type": "debug",
+        "z": "953b31d6.01fac",
+        "g": "22852220.657a9e",
+        "name": "HTML page content parameters",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 630,
+        "y": 1400,
+        "wires": []
+    },
+    {
+        "id": "ffd52e23.72e5d",
+        "type": "comment",
+        "z": "953b31d6.01fac",
+        "g": "22852220.657a9e",
+        "name": "Source: https://cookbook.nodered.org/http/create-an-http-endpoint#solution",
+        "info": "Source: [HTML-Page](https://cookbook.nodered.org/http/create-an-http-endpoint#solution)",
+        "x": 520,
+        "y": 1580,
+        "wires": []
+    }
+]
