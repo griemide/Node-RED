@@ -155,7 +155,7 @@
         "url": "",
         "persist": false,
         "authType": "",
-        "x": 450,
+        "x": 490,
         "y": 1640,
         "wires": [
             [
@@ -227,11 +227,11 @@
         "active": true,
         "tosidebar": true,
         "console": false,
-        "tostatus": false,
+        "tostatus": true,
         "complete": "payload",
         "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
+        "statusVal": "\"Title: \" & payload.title & \", Body: \" & payload.body",
+        "statusType": "jsonata",
         "x": 630,
         "y": 1400,
         "wires": []
@@ -241,9 +241,9 @@
         "type": "comment",
         "z": "953b31d6.01fac",
         "g": "22852220.657a9e",
-        "name": "Source: https://cookbook.nodered.org/http/create-an-http-endpoint#solution",
-        "info": "Source: [HTML-Page](https://cookbook.nodered.org/http/create-an-http-endpoint#solution)",
-        "x": 520,
+        "name": "NR Source: https://cookbook.nodered.org/http/create-an-http-endpoint",
+        "info": "Source: [HTML-Page](https://cookbook.nodered.org/http/create-an-http-endpoint)",
+        "x": 530,
         "y": 1580,
         "wires": []
     }
