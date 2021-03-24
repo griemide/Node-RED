@@ -1,0 +1,231 @@
+[
+    {
+        "id": "1dc37c91.d94793",
+        "type": "comment",
+        "z": "ed50c17b.aeeaa",
+        "name": "Backup",
+        "info": "",
+        "x": 90,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "4b6d1b78.b25084",
+        "type": "file in",
+        "z": "ed50c17b.aeeaa",
+        "name": "Read file",
+        "filename": "",
+        "format": "utf8",
+        "x": 260,
+        "y": 240,
+        "wires": [
+            [
+                "723c963e.2f27a8"
+            ]
+        ]
+    },
+    {
+        "id": "40b35c2c.f96db4",
+        "type": "file",
+        "z": "ed50c17b.aeeaa",
+        "name": "Save file",
+        "filename": "",
+        "appendNewline": false,
+        "createDir": false,
+        "overwriteFile": "true",
+        "x": 640,
+        "y": 200,
+        "wires": [
+            [
+                "8de33bb7.37a168"
+            ]
+        ]
+    },
+    {
+        "id": "2c5f4e4f.d5ba82",
+        "type": "inject",
+        "z": "ed50c17b.aeeaa",
+        "name": "",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "topic": "Backup",
+        "x": 110,
+        "y": 160,
+        "wires": [
+            [
+                "f365d00f.67369"
+            ]
+        ]
+    },
+    {
+        "id": "723c963e.2f27a8",
+        "type": "function",
+        "z": "ed50c17b.aeeaa",
+        "name": "Backup ",
+        "func": "msg.filename = \"/home/pi/.node-red/backup_\"+(new Date().toISOString().replace(':', '_').replace(':', '_').replace(/\\..+/, ''))+\"_flows_rpizw3.json\";\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 500,
+        "y": 240,
+        "wires": [
+            [
+                "8de33bb7.37a168"
+            ]
+        ]
+    },
+    {
+        "id": "c868ca6.be71638",
+        "type": "file in",
+        "z": "ed50c17b.aeeaa",
+        "name": "Read file",
+        "filename": "",
+        "format": "utf8",
+        "x": 260,
+        "y": 320,
+        "wires": [
+            [
+                "26919eb4.e82f12"
+            ]
+        ]
+    },
+    {
+        "id": "70104c1d.e4c364",
+        "type": "file",
+        "z": "ed50c17b.aeeaa",
+        "name": "Save file",
+        "filename": "",
+        "appendNewline": false,
+        "createDir": false,
+        "overwriteFile": "true",
+        "x": 640,
+        "y": 300,
+        "wires": [
+            [
+                "9cb95302.55d15"
+            ]
+        ]
+    },
+    {
+        "id": "26919eb4.e82f12",
+        "type": "function",
+        "z": "ed50c17b.aeeaa",
+        "name": "Generate new name",
+        "func": "msg.filename = \"/home/pi/.node-red/backup_\"+(new Date().toISOString().replace(':', '_').replace(':', '_').replace(/\\..+/, ''))+\"_flows_rpizw3_cred.json\";\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 480,
+        "y": 340,
+        "wires": [
+            [
+                "9cb95302.55d15"
+            ]
+        ]
+    },
+    {
+        "id": "8de33bb7.37a168",
+        "type": "debug",
+        "z": "ed50c17b.aeeaa",
+        "name": "flows_rpizw3.json",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 930,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "9cb95302.55d15",
+        "type": "debug",
+        "z": "ed50c17b.aeeaa",
+        "name": "flows_rpizw3_cred.json",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 830,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "b0bac384.d949",
+        "type": "function",
+        "z": "ed50c17b.aeeaa",
+        "name": "Files",
+        "func": "var path = \"/home/pi/.node-red/\"; // default\nvar host = msg.payload.hostname; // palette: node-red-contrib-os\n\nvar out1 = {filename: path+\"flows_\"+host+\".json\", host: host};\nvar out2 = {filename: path+\"flows_\"+host+\"_cred.json\", host: host};\n\nreturn [out1, out2];",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 110,
+        "y": 280,
+        "wires": [
+            [
+                "4b6d1b78.b25084"
+            ],
+            [
+                "c868ca6.be71638"
+            ]
+        ],
+        "inputLabels": [
+            "Host"
+        ],
+        "outputLabels": [
+            "Flow",
+            "Credentials"
+        ],
+        "icon": "font-awesome/fa-files-o",
+        "info": "https://notenoughtech.com/nodered-home-automation/multiple-payloads/"
+    },
+    {
+        "id": "f365d00f.67369",
+        "type": "OS",
+        "z": "ed50c17b.aeeaa",
+        "name": "Host",
+        "x": 270,
+        "y": 160,
+        "wires": [
+            [
+                "7fd591f5.1e59c",
+                "b0bac384.d949"
+            ]
+        ]
+    },
+    {
+        "id": "7fd591f5.1e59c",
+        "type": "debug",
+        "z": "ed50c17b.aeeaa",
+        "name": "host",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload.hostname",
+        "targetType": "msg",
+        "statusVal": "payload.hostname",
+        "statusType": "auto",
+        "x": 650,
+        "y": 140,
+        "wires": []
+    }
+]
