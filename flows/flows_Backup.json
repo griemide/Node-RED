@@ -1,26 +1,63 @@
 [
     {
+        "id": "ed50c17b.aeeaa",
+        "type": "tab",
+        "label": "Backup",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "62fafcf1.302324",
+        "type": "group",
+        "z": "ed50c17b.aeeaa",
+        "name": "Manual Backup",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "1dc37c91.d94793",
+            "4b6d1b78.b25084",
+            "40b35c2c.f96db4",
+            "2c5f4e4f.d5ba82",
+            "c868ca6.be71638",
+            "70104c1d.e4c364",
+            "9cb95302.55d15",
+            "b0bac384.d949",
+            "f365d00f.67369",
+            "7fd591f5.1e59c",
+            "2326b43e.d18d9c",
+            "9b23778c.b324e8",
+            "751020dd.4b697"
+        ],
+        "x": 34,
+        "y": 119,
+        "w": 772,
+        "h": 482
+    },
+    {
         "id": "1dc37c91.d94793",
         "type": "comment",
         "z": "ed50c17b.aeeaa",
-        "name": "Backup",
+        "g": "62fafcf1.302324",
+        "name": "Manual Backup - using path /home/pi.node-red (only one backup file per day)",
         "info": "",
-        "x": 90,
-        "y": 100,
+        "x": 510,
+        "y": 160,
         "wires": []
     },
     {
         "id": "4b6d1b78.b25084",
         "type": "file in",
         "z": "ed50c17b.aeeaa",
+        "g": "62fafcf1.302324",
         "name": "Read file",
         "filename": "",
         "format": "utf8",
-        "x": 260,
-        "y": 240,
+        "x": 300,
+        "y": 280,
         "wires": [
             [
-                "723c963e.2f27a8"
+                "9b23778c.b324e8"
             ]
         ]
     },
@@ -28,16 +65,17 @@
         "id": "40b35c2c.f96db4",
         "type": "file",
         "z": "ed50c17b.aeeaa",
+        "g": "62fafcf1.302324",
         "name": "Save file",
         "filename": "",
         "appendNewline": false,
         "createDir": false,
         "overwriteFile": "true",
-        "x": 640,
-        "y": 200,
+        "x": 340,
+        "y": 380,
         "wires": [
             [
-                "8de33bb7.37a168"
+                "751020dd.4b697"
             ]
         ]
     },
@@ -45,6 +83,7 @@
         "id": "2c5f4e4f.d5ba82",
         "type": "inject",
         "z": "ed50c17b.aeeaa",
+        "g": "62fafcf1.302324",
         "name": "",
         "props": [
             {
@@ -57,44 +96,28 @@
         "once": false,
         "onceDelay": "",
         "topic": "Backup",
-        "x": 110,
-        "y": 160,
+        "x": 140,
+        "y": 200,
         "wires": [
             [
                 "f365d00f.67369"
             ]
-        ]
-    },
-    {
-        "id": "723c963e.2f27a8",
-        "type": "function",
-        "z": "ed50c17b.aeeaa",
-        "name": "Backup ",
-        "func": "msg.filename = \"/home/pi/.node-red/backup_\"+(new Date().toISOString().replace(':', '_').replace(':', '_').replace(/\\..+/, ''))+\"_flows_rpizw3.json\";\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 500,
-        "y": 240,
-        "wires": [
-            [
-                "8de33bb7.37a168"
-            ]
-        ]
+        ],
+        "info": "\nNode-RED default backup file is\n`.flows_rpizw3.json.backup`"
     },
     {
         "id": "c868ca6.be71638",
         "type": "file in",
         "z": "ed50c17b.aeeaa",
+        "g": "62fafcf1.302324",
         "name": "Read file",
         "filename": "",
         "format": "utf8",
-        "x": 260,
-        "y": 320,
+        "x": 300,
+        "y": 460,
         "wires": [
             [
-                "26919eb4.e82f12"
+                "2326b43e.d18d9c"
             ]
         ]
     },
@@ -102,82 +125,50 @@
         "id": "70104c1d.e4c364",
         "type": "file",
         "z": "ed50c17b.aeeaa",
+        "g": "62fafcf1.302324",
         "name": "Save file",
         "filename": "",
         "appendNewline": false,
         "createDir": false,
         "overwriteFile": "true",
-        "x": 640,
-        "y": 300,
+        "x": 340,
+        "y": 560,
         "wires": [
             [
                 "9cb95302.55d15"
             ]
         ]
-    },
-    {
-        "id": "26919eb4.e82f12",
-        "type": "function",
-        "z": "ed50c17b.aeeaa",
-        "name": "Generate new name",
-        "func": "msg.filename = \"/home/pi/.node-red/backup_\"+(new Date().toISOString().replace(':', '_').replace(':', '_').replace(/\\..+/, ''))+\"_flows_rpizw3_cred.json\";\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 480,
-        "y": 340,
-        "wires": [
-            [
-                "9cb95302.55d15"
-            ]
-        ]
-    },
-    {
-        "id": "8de33bb7.37a168",
-        "type": "debug",
-        "z": "ed50c17b.aeeaa",
-        "name": "flows_rpizw3.json",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 930,
-        "y": 260,
-        "wires": []
     },
     {
         "id": "9cb95302.55d15",
         "type": "debug",
         "z": "ed50c17b.aeeaa",
-        "name": "flows_rpizw3_cred.json",
+        "g": "62fafcf1.302324",
+        "name": "",
         "active": true,
         "tosidebar": true,
         "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 830,
-        "y": 340,
+        "tostatus": true,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "msg.size",
+        "statusType": "jsonata",
+        "x": 710,
+        "y": 560,
         "wires": []
     },
     {
         "id": "b0bac384.d949",
         "type": "function",
         "z": "ed50c17b.aeeaa",
+        "g": "62fafcf1.302324",
         "name": "Files",
-        "func": "var path = \"/home/pi/.node-red/\"; // default\nvar host = msg.payload.hostname; // palette: node-red-contrib-os\n\nvar out1 = {filename: path+\"flows_\"+host+\".json\", host: host};\nvar out2 = {filename: path+\"flows_\"+host+\"_cred.json\", host: host};\n\nreturn [out1, out2];",
+        "func": "// prepare files to be backed-up\n// host already evaluated withhon msg.payload\nvar host = msg.payload.hostname; // palette: node-red-contrib-os\n\nnode.status({fill:\"green\", text:host});\n\nvar path = \"/home/pi/.node-red/\"; // default\nvar file1 = \"flows_\" + host + \".json\"; // node-red flows\nvar file2 = \"flows_\" + host + \"_cred.json\"; // flows credentials\n\nvar out1 = {filename:path + file1, host:host, path:path, file:file1};\nvar out2 = {filename:path + file2, host:host, path:path, file:file2};\n\nreturn [out1, out2];",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 110,
+        "x": 150,
         "y": 280,
         "wires": [
             [
@@ -201,9 +192,10 @@
         "id": "f365d00f.67369",
         "type": "OS",
         "z": "ed50c17b.aeeaa",
+        "g": "62fafcf1.302324",
         "name": "Host",
-        "x": 270,
-        "y": 160,
+        "x": 290,
+        "y": 200,
         "wires": [
             [
                 "7fd591f5.1e59c",
@@ -215,8 +207,9 @@
         "id": "7fd591f5.1e59c",
         "type": "debug",
         "z": "ed50c17b.aeeaa",
+        "g": "62fafcf1.302324",
         "name": "host",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": true,
@@ -224,8 +217,66 @@
         "targetType": "msg",
         "statusVal": "payload.hostname",
         "statusType": "auto",
-        "x": 650,
-        "y": 140,
+        "x": 710,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "2326b43e.d18d9c",
+        "type": "function",
+        "z": "ed50c17b.aeeaa",
+        "g": "62fafcf1.302324",
+        "name": "Backup ",
+        "func": "var day = new Date().toISOString().substring(0,10);\n\nnode.status({fill:\"green\",text:day});\n\n// msg.path and msg.file are already defined before\nvar hidden = \".\";  // i.e. use ls-al instead of ls -l\n\nmsg.filename = msg.path + hidden + msg.file + \".backup_\" + day;\n\n// determine number of payload bytes\nvar bytes = msg.payload.length;\nmsg.size = bytes + \" byte\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 600,
+        "y": 460,
+        "wires": [
+            [
+                "70104c1d.e4c364"
+            ]
+        ],
+        "icon": "node-red-dashboard/ui_date_picker.png"
+    },
+    {
+        "id": "9b23778c.b324e8",
+        "type": "function",
+        "z": "ed50c17b.aeeaa",
+        "g": "62fafcf1.302324",
+        "name": "Backup ",
+        "func": "var day = new Date().toISOString().substring(0,10);\n\nnode.status({fill:\"green\",text:day});\n\n// msg.path and msg.file are already defined before\nvar hidden = \".\";  // i.e. use ls-al instead of ls -l\n\nmsg.filename = msg.path + hidden + msg.file + \".backup_\" + day;\n\n// determine number of payload bytes\nvar bytes = msg.payload.length;\nmsg.size = bytes + \" byte\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 600,
+        "y": 280,
+        "wires": [
+            [
+                "40b35c2c.f96db4"
+            ]
+        ],
+        "icon": "node-red-dashboard/ui_date_picker.png"
+    },
+    {
+        "id": "751020dd.4b697",
+        "type": "debug",
+        "z": "ed50c17b.aeeaa",
+        "g": "62fafcf1.302324",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "msg.size",
+        "statusType": "jsonata",
+        "x": 710,
+        "y": 380,
         "wires": []
     }
 ]
