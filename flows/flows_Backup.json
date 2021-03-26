@@ -4,7 +4,7 @@
         "type": "tab",
         "label": "Backup",
         "disabled": false,
-        "info": ""
+        "info": "# Manual Backup\n\nBoth node-RED standard flow files will be saved within the node-red default project folder\n\n---\n\n### Details\nNode-RED default backup file is\n`.flows_rpizw3.json.backup`\n\n### Dependencies\n * node-red-contrib-os "
     },
     {
         "id": "62fafcf1.302324",
@@ -30,9 +30,10 @@
             "751020dd.4b697"
         ],
         "x": 34,
-        "y": 119,
+        "y": 39,
         "w": 772,
-        "h": 482
+        "h": 482,
+        "info": "# Manual Backup group\n\nother backup files can be added similar by modifying the `Files` node.\nEnhancement can be done by using additional node outputs. All othe nodes can be copied one by one w/o modification."
     },
     {
         "id": "1dc37c91.d94793",
@@ -40,9 +41,9 @@
         "z": "ed50c17b.aeeaa",
         "g": "62fafcf1.302324",
         "name": "Manual Backup - using path /home/pi.node-red (only one backup file per day)",
-        "info": "",
+        "info": "# Created 2021-03-25\n\n## Versions \n * v1.0.0",
         "x": 510,
-        "y": 160,
+        "y": 80,
         "wires": []
     },
     {
@@ -54,7 +55,7 @@
         "filename": "",
         "format": "utf8",
         "x": 300,
-        "y": 280,
+        "y": 200,
         "wires": [
             [
                 "9b23778c.b324e8"
@@ -72,7 +73,7 @@
         "createDir": false,
         "overwriteFile": "true",
         "x": 340,
-        "y": 380,
+        "y": 300,
         "wires": [
             [
                 "751020dd.4b697"
@@ -96,8 +97,9 @@
         "once": false,
         "onceDelay": "",
         "topic": "Backup",
+        "payloadType": "str",
         "x": 140,
-        "y": 200,
+        "y": 120,
         "wires": [
             [
                 "f365d00f.67369"
@@ -114,7 +116,7 @@
         "filename": "",
         "format": "utf8",
         "x": 300,
-        "y": 460,
+        "y": 380,
         "wires": [
             [
                 "2326b43e.d18d9c"
@@ -132,7 +134,7 @@
         "createDir": false,
         "overwriteFile": "true",
         "x": 340,
-        "y": 560,
+        "y": 480,
         "wires": [
             [
                 "9cb95302.55d15"
@@ -145,7 +147,7 @@
         "z": "ed50c17b.aeeaa",
         "g": "62fafcf1.302324",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": true,
@@ -154,7 +156,7 @@
         "statusVal": "msg.size",
         "statusType": "jsonata",
         "x": 710,
-        "y": 560,
+        "y": 480,
         "wires": []
     },
     {
@@ -169,7 +171,7 @@
         "initialize": "",
         "finalize": "",
         "x": 150,
-        "y": 280,
+        "y": 200,
         "wires": [
             [
                 "4b6d1b78.b25084"
@@ -195,7 +197,7 @@
         "g": "62fafcf1.302324",
         "name": "Host",
         "x": 290,
-        "y": 200,
+        "y": 120,
         "wires": [
             [
                 "7fd591f5.1e59c",
@@ -218,7 +220,7 @@
         "statusVal": "payload.hostname",
         "statusType": "auto",
         "x": 710,
-        "y": 200,
+        "y": 120,
         "wires": []
     },
     {
@@ -233,7 +235,7 @@
         "initialize": "",
         "finalize": "",
         "x": 600,
-        "y": 460,
+        "y": 380,
         "wires": [
             [
                 "70104c1d.e4c364"
@@ -253,7 +255,7 @@
         "initialize": "",
         "finalize": "",
         "x": 600,
-        "y": 280,
+        "y": 200,
         "wires": [
             [
                 "40b35c2c.f96db4"
@@ -267,7 +269,7 @@
         "z": "ed50c17b.aeeaa",
         "g": "62fafcf1.302324",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": true,
@@ -276,7 +278,7 @@
         "statusVal": "msg.size",
         "statusType": "jsonata",
         "x": 710,
-        "y": 380,
+        "y": 300,
         "wires": []
     }
 ]
