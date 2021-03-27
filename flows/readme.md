@@ -12,6 +12,9 @@
 ## Shelly
 [![Shelly](RPiZW2_Shelly_2021-02-26_flows.jpg)](RPiZW2_Shelly_2021-02-26_flows.json)  
 
+## Shelly API
+[![Shelly](flows_Shelly-API.jpg)](flows_Shelly-API.json)  
+
 ## HTML pages
 [![HTML](RPiZW3_HTML-page_flows.jpg)](RPiZW3_HTML-page_flows.json)  
 
