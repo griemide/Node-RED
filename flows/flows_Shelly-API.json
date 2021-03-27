@@ -1,0 +1,236 @@
+[
+    {
+        "id": "681fa66b.28d958",
+        "type": "tab",
+        "label": "Shelly API",
+        "disabled": false,
+        "info": "# Shelly API\n\nShelly [Common HTTP API](https://shelly-api-docs.shelly.cloud/#common-http-api)\n\n### Example\n`http://192.168.0.222/status`"
+    },
+    {
+        "id": "af7ba13f.4f94b",
+        "type": "group",
+        "z": "681fa66b.28d958",
+        "name": "Shelly API Read",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "c0d5e953.0c9a28",
+            "62eff994.e8d5f8",
+            "c38c94c3.aa1d68",
+            "decd9e01.626cf",
+            "3ba809f9.b09686",
+            "c50a24b1.8519d8",
+            "537067f6.f531f8",
+            "93a01458.d9ac98",
+            "1e2c46f1.60ecb9"
+        ],
+        "x": 34,
+        "y": 39,
+        "w": 772,
+        "h": 282
+    },
+    {
+        "id": "c0d5e953.0c9a28",
+        "type": "http request",
+        "z": "681fa66b.28d958",
+        "g": "af7ba13f.4f94b",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 450,
+        "y": 200,
+        "wires": [
+            [
+                "62eff994.e8d5f8",
+                "3ba809f9.b09686"
+            ]
+        ]
+    },
+    {
+        "id": "62eff994.e8d5f8",
+        "type": "debug",
+        "z": "681fa66b.28d958",
+        "g": "af7ba13f.4f94b",
+        "name": "Response",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "\"Status Code: \" & statusCode",
+        "statusType": "jsonata",
+        "x": 700,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "c38c94c3.aa1d68",
+        "type": "inject",
+        "z": "681fa66b.28d958",
+        "g": "af7ba13f.4f94b",
+        "name": "/debug/log1",
+        "props": [
+            {
+                "p": "url",
+                "v": "http://192.168.0.222/debug/log1",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "payloadType": "str",
+        "x": 150,
+        "y": 280,
+        "wires": [
+            [
+                "c0d5e953.0c9a28"
+            ]
+        ]
+    },
+    {
+        "id": "decd9e01.626cf",
+        "type": "inject",
+        "z": "681fa66b.28d958",
+        "g": "af7ba13f.4f94b",
+        "name": "/shelly",
+        "props": [
+            {
+                "p": "url",
+                "v": "http://192.168.0.222/shelly",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "payloadType": "str",
+        "x": 130,
+        "y": 120,
+        "wires": [
+            [
+                "c0d5e953.0c9a28"
+            ]
+        ]
+    },
+    {
+        "id": "3ba809f9.b09686",
+        "type": "debug",
+        "z": "681fa66b.28d958",
+        "g": "af7ba13f.4f94b",
+        "name": "Result",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "$length(payload) & \" bytes\"",
+        "statusType": "jsonata",
+        "x": 690,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "c50a24b1.8519d8",
+        "type": "inject",
+        "z": "681fa66b.28d958",
+        "g": "af7ba13f.4f94b",
+        "name": "/status",
+        "props": [
+            {
+                "p": "url",
+                "v": "http://192.168.0.222/status",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "payloadType": "str",
+        "x": 130,
+        "y": 160,
+        "wires": [
+            [
+                "c0d5e953.0c9a28"
+            ]
+        ]
+    },
+    {
+        "id": "537067f6.f531f8",
+        "type": "inject",
+        "z": "681fa66b.28d958",
+        "g": "af7ba13f.4f94b",
+        "name": "/settings",
+        "props": [
+            {
+                "p": "url",
+                "v": "http://192.168.0.222/settings",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "x": 140,
+        "y": 200,
+        "wires": [
+            [
+                "c0d5e953.0c9a28"
+            ]
+        ]
+    },
+    {
+        "id": "93a01458.d9ac98",
+        "type": "inject",
+        "z": "681fa66b.28d958",
+        "g": "af7ba13f.4f94b",
+        "name": "/settings/sta",
+        "props": [
+            {
+                "p": "url",
+                "v": "http://192.168.0.222/settings/sta",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "x": 150,
+        "y": 240,
+        "wires": [
+            [
+                "c0d5e953.0c9a28"
+            ]
+        ]
+    },
+    {
+        "id": "1e2c46f1.60ecb9",
+        "type": "comment",
+        "z": "681fa66b.28d958",
+        "g": "af7ba13f.4f94b",
+        "name": "Shelly API Evaluation ",
+        "info": "",
+        "x": 440,
+        "y": 80,
+        "wires": []
+    }
+]
