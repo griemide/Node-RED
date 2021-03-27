@@ -23,12 +23,18 @@
             "c50a24b1.8519d8",
             "537067f6.f531f8",
             "93a01458.d9ac98",
-            "1e2c46f1.60ecb9"
+            "1e2c46f1.60ecb9",
+            "47b50f7.092bcf",
+            "f4ee9884.50f518",
+            "a39301c6.53f6e",
+            "b54b1d4d.26722",
+            "e055ee7e.be28f",
+            "ed1e2743.05e6d8"
         ],
         "x": 34,
         "y": 39,
         "w": 772,
-        "h": 282
+        "h": 382
     },
     {
         "id": "c0d5e953.0c9a28",
@@ -44,8 +50,8 @@
         "persist": false,
         "proxy": "",
         "authType": "",
-        "x": 450,
-        "y": 200,
+        "x": 490,
+        "y": 300,
         "wires": [
             [
                 "62eff994.e8d5f8",
@@ -68,7 +74,7 @@
         "statusVal": "\"Status Code: \" & statusCode",
         "statusType": "jsonata",
         "x": 700,
-        "y": 120,
+        "y": 220,
         "wires": []
     },
     {
@@ -79,8 +85,8 @@
         "name": "/debug/log1",
         "props": [
             {
-                "p": "url",
-                "v": "http://192.168.0.222/debug/log1",
+                "p": "get",
+                "v": "/debug/log1",
                 "vt": "str"
             }
         ],
@@ -89,12 +95,11 @@
         "once": false,
         "onceDelay": "1",
         "topic": "",
-        "payloadType": "str",
         "x": 150,
-        "y": 280,
+        "y": 380,
         "wires": [
             [
-                "c0d5e953.0c9a28"
+                "e055ee7e.be28f"
             ]
         ]
     },
@@ -106,8 +111,8 @@
         "name": "/shelly",
         "props": [
             {
-                "p": "url",
-                "v": "http://192.168.0.222/shelly",
+                "p": "get",
+                "v": "/shelly",
                 "vt": "str"
             }
         ],
@@ -118,10 +123,10 @@
         "topic": "",
         "payloadType": "str",
         "x": 130,
-        "y": 120,
+        "y": 220,
         "wires": [
             [
-                "c0d5e953.0c9a28"
+                "e055ee7e.be28f"
             ]
         ]
     },
@@ -140,7 +145,7 @@
         "statusVal": "$length(payload) & \" bytes\"",
         "statusType": "jsonata",
         "x": 690,
-        "y": 200,
+        "y": 300,
         "wires": []
     },
     {
@@ -151,8 +156,8 @@
         "name": "/status",
         "props": [
             {
-                "p": "url",
-                "v": "http://192.168.0.222/status",
+                "p": "get",
+                "v": "/status",
                 "vt": "str"
             }
         ],
@@ -161,12 +166,11 @@
         "once": false,
         "onceDelay": "1",
         "topic": "",
-        "payloadType": "str",
         "x": 130,
-        "y": 160,
+        "y": 260,
         "wires": [
             [
-                "c0d5e953.0c9a28"
+                "e055ee7e.be28f"
             ]
         ]
     },
@@ -178,8 +182,8 @@
         "name": "/settings",
         "props": [
             {
-                "p": "url",
-                "v": "http://192.168.0.222/settings",
+                "p": "get",
+                "v": "/settings",
                 "vt": "str"
             }
         ],
@@ -189,10 +193,10 @@
         "onceDelay": "1",
         "topic": "",
         "x": 140,
-        "y": 200,
+        "y": 300,
         "wires": [
             [
-                "c0d5e953.0c9a28"
+                "e055ee7e.be28f"
             ]
         ]
     },
@@ -204,8 +208,8 @@
         "name": "/settings/sta",
         "props": [
             {
-                "p": "url",
-                "v": "http://192.168.0.222/settings/sta",
+                "p": "get",
+                "v": "/settings/sta",
                 "vt": "str"
             }
         ],
@@ -215,10 +219,10 @@
         "onceDelay": "1",
         "topic": "",
         "x": 150,
-        "y": 240,
+        "y": 340,
         "wires": [
             [
-                "c0d5e953.0c9a28"
+                "e055ee7e.be28f"
             ]
         ]
     },
@@ -227,10 +231,132 @@
         "type": "comment",
         "z": "681fa66b.28d958",
         "g": "af7ba13f.4f94b",
-        "name": "Shelly API Evaluation ",
+        "name": "Shelly API Evaluation - https://shelly-api-docs.shelly.cloud/#common-http-api",
         "info": "",
-        "x": 440,
+        "x": 510,
         "y": 80,
+        "wires": []
+    },
+    {
+        "id": "47b50f7.092bcf",
+        "type": "change",
+        "z": "681fa66b.28d958",
+        "g": "af7ba13f.4f94b",
+        "name": "set flow context",
+        "rules": [
+            {
+                "t": "set",
+                "p": "shelly",
+                "pt": "flow",
+                "to": "shelly_ip",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 320,
+        "y": 140,
+        "wires": [
+            [
+                "b54b1d4d.26722"
+            ]
+        ]
+    },
+    {
+        "id": "f4ee9884.50f518",
+        "type": "inject",
+        "z": "681fa66b.28d958",
+        "g": "af7ba13f.4f94b",
+        "name": "Shelly IP",
+        "props": [
+            {
+                "p": "shelly_ip",
+                "v": "192.168.0.222",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 140,
+        "y": 140,
+        "wires": [
+            [
+                "47b50f7.092bcf"
+            ]
+        ]
+    },
+    {
+        "id": "a39301c6.53f6e",
+        "type": "debug",
+        "z": "681fa66b.28d958",
+        "g": "af7ba13f.4f94b",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "$env($flow.context(\"shelly\"))",
+        "targetType": "jsonata",
+        "statusVal": "$env(\"shelly\")",
+        "statusType": "auto",
+        "x": 700,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "b54b1d4d.26722",
+        "type": "function",
+        "z": "681fa66b.28d958",
+        "g": "af7ba13f.4f94b",
+        "name": "Context",
+        "func": "// get flow context\nvar host = flow.get(\"shelly\")\n\nmsg.payload = host\n\nnode.status({fill:\"grey\", text:host});\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 520,
+        "y": 140,
+        "wires": [
+            [
+                "a39301c6.53f6e"
+            ]
+        ]
+    },
+    {
+        "id": "e055ee7e.be28f",
+        "type": "function",
+        "z": "681fa66b.28d958",
+        "g": "af7ba13f.4f94b",
+        "name": "",
+        "func": "// get flow context\nvar service = \"http://\"\nvar host = flow.get(\"shelly\")\n\nmsg.url = service + host + msg.get\n\nvar status = \"grey\";\nif(typeof host != \"undefined\") status = \"green\";\nnode.status({fill:status});\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is deployed.\nvar status = \"grey\";",
+        "finalize": "",
+        "x": 335,
+        "y": 300,
+        "wires": [
+            [
+                "c0d5e953.0c9a28"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "ed1e2743.05e6d8",
+        "type": "comment",
+        "z": "681fa66b.28d958",
+        "g": "af7ba13f.4f94b",
+        "name": "function node sets url of configured shelly devive for http request",
+        "info": "",
+        "x": 550,
+        "y": 380,
         "wires": []
     }
 ]
