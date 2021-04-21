@@ -15,8 +15,8 @@
 ## Shelly API
 [![Shelly](flows_Shelly-API.jpg)](flows_Shelly-API.json)  
 
-## HTML pages
-[![HTML](RPiZW3_HTML-page_flows.jpg)](RPiZW3_HTML-page_flows.json)  
+## Webpage
+[![HTML](flows_webpage_tab.jpg)](flows_webpage_tab.json)  
 
 ## Backup (manually)
 [![BAK](flows_Backup.jpg)](flows_Backup.json)  
