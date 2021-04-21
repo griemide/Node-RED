@@ -1,0 +1,84 @@
+[
+    {
+        "id": "8ef7505f.8ffdf",
+        "type": "tab",
+        "label": "Sun",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "3af61f66.2b55a",
+        "type": "sunrise",
+        "z": "8ef7505f.8ffdf",
+        "name": "",
+        "lat": "50.876987",
+        "lon": "9.691384",
+        "start": "sunrise",
+        "end": "sunset",
+        "soff": 0,
+        "eoff": 0,
+        "x": 190,
+        "y": 120,
+        "wires": [
+            [
+                "f06c8488.eab6e8",
+                "47a6ade1.3a8a94"
+            ],
+            [
+                "78a3fd64.f963f4"
+            ]
+        ],
+        "info": "# Set Location\n[AF104](http://gries.name/Maps/default.shtm)"
+    },
+    {
+        "id": "f06c8488.eab6e8",
+        "type": "debug",
+        "z": "8ef7505f.8ffdf",
+        "name": "daytime",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 520,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "78a3fd64.f963f4",
+        "type": "debug",
+        "z": "8ef7505f.8ffdf",
+        "name": "trigger",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 510,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "47a6ade1.3a8a94",
+        "type": "debug",
+        "z": "8ef7505f.8ffdf",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "start",
+        "statusType": "jsonata",
+        "x": 510,
+        "y": 60,
+        "wires": []
+    }
+]
