@@ -2,14 +2,104 @@
     {
         "id": "8ef7505f.8ffdf",
         "type": "tab",
-        "label": "Sun",
+        "label": "Astro",
         "disabled": false,
         "info": ""
     },
     {
-        "id": "3af61f66.2b55a",
+        "id": "546207f6.df72f8",
+        "type": "group",
+        "z": "8ef7505f.8ffdf",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "39c70bff.be9dc4",
+            "e74158af.c17e38",
+            "e149f07f.be4eb",
+            "be287d70.8384b"
+        ],
+        "x": 34,
+        "y": 339,
+        "w": 772,
+        "h": 142
+    },
+    {
+        "id": "f1ed0782.9e94b8",
+        "type": "group",
+        "z": "8ef7505f.8ffdf",
+        "name": "Location based light control",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "d5316545.5f9a68",
+            "ac3dfeac.9a06c",
+            "e037671b.6f08f8",
+            "9be38bd.badb178",
+            "6f640d2e.ff3864",
+            "2f4fcc9.5aff534",
+            "9f056da6.31f8c",
+            "65ee9e9a.21f",
+            "eacb72fa.19978",
+            "b237dff9.864da"
+        ],
+        "x": 34,
+        "y": 39,
+        "w": 772,
+        "h": 262
+    },
+    {
+        "id": "d5316545.5f9a68",
+        "type": "comment",
+        "z": "8ef7505f.8ffdf",
+        "g": "f1ed0782.9e94b8",
+        "name": "Astro Function",
+        "info": "",
+        "x": 130,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "ac3dfeac.9a06c",
+        "type": "comment",
+        "z": "8ef7505f.8ffdf",
+        "g": "f1ed0782.9e94b8",
+        "name": "Location: 50.876987 / 9.691384 (DE HEF AF104)",
+        "info": "[Home](http://www.gries.name/Maps/default.shtm)",
+        "x": 240,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "9be38bd.badb178",
+        "type": "debug",
+        "z": "8ef7505f.8ffdf",
+        "g": "f1ed0782.9e94b8",
+        "name": "daylight",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 700,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "6f640d2e.ff3864",
         "type": "sunrise",
         "z": "8ef7505f.8ffdf",
+        "g": "f1ed0782.9e94b8",
         "name": "",
         "lat": "50.876987",
         "lon": "9.691384",
@@ -17,42 +107,26 @@
         "end": "sunset",
         "soff": 0,
         "eoff": 0,
-        "x": 190,
-        "y": 120,
+        "x": 130,
+        "y": 140,
         "wires": [
             [
-                "f06c8488.eab6e8",
-                "47a6ade1.3a8a94"
+                "e037671b.6f08f8",
+                "eacb72fa.19978"
             ],
             [
-                "78a3fd64.f963f4"
+                "9f056da6.31f8c"
             ]
         ],
         "info": "# Set Location\n[AF104](http://gries.name/Maps/default.shtm)"
     },
     {
-        "id": "f06c8488.eab6e8",
+        "id": "2f4fcc9.5aff534",
         "type": "debug",
         "z": "8ef7505f.8ffdf",
-        "name": "daytime",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": true,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "payload",
-        "statusType": "auto",
-        "x": 520,
-        "y": 140,
-        "wires": []
-    },
-    {
-        "id": "78a3fd64.f963f4",
-        "type": "debug",
-        "z": "8ef7505f.8ffdf",
+        "g": "f1ed0782.9e94b8",
         "name": "trigger",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": true,
@@ -60,25 +134,186 @@
         "targetType": "msg",
         "statusVal": "payload",
         "statusType": "auto",
-        "x": 510,
+        "x": 710,
         "y": 200,
         "wires": []
     },
     {
-        "id": "47a6ade1.3a8a94",
+        "id": "e037671b.6f08f8",
         "type": "debug",
         "z": "8ef7505f.8ffdf",
-        "name": "",
-        "active": true,
+        "g": "f1ed0782.9e94b8",
+        "name": "Last update (UTC)",
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": true,
         "complete": "true",
         "targetType": "full",
-        "statusVal": "start",
+        "statusVal": "now",
         "statusType": "jsonata",
-        "x": 510,
-        "y": 60,
+        "x": 470,
+        "y": 80,
         "wires": []
+    },
+    {
+        "id": "eacb72fa.19978",
+        "type": "function",
+        "z": "8ef7505f.8ffdf",
+        "g": "f1ed0782.9e94b8",
+        "name": "Time",
+        "func": "var time = new Date().toISOString().substring(11,16);\n\nnode.status({fill:\"green\",text:time});\n\n\nmsg.time = time;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 510,
+        "y": 140,
+        "wires": [
+            [
+                "9be38bd.badb178",
+                "65ee9e9a.21f"
+            ]
+        ],
+        "icon": "node-red-dashboard/ui_date_picker.png"
+    },
+    {
+        "id": "9f056da6.31f8c",
+        "type": "function",
+        "z": "8ef7505f.8ffdf",
+        "g": "f1ed0782.9e94b8",
+        "name": "Last Trigger (local)",
+        "func": "var time = new Date().toISOString().substring(11,16);\n\nnode.status({fill:\"green\",text:time});\n\n\nmsg.time = time;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 470,
+        "y": 200,
+        "wires": [
+            [
+                "2f4fcc9.5aff534",
+                "b237dff9.864da"
+            ]
+        ],
+        "icon": "node-red-dashboard/ui_date_picker.png"
+    },
+    {
+        "id": "65ee9e9a.21f",
+        "type": "link out",
+        "z": "8ef7505f.8ffdf",
+        "g": "f1ed0782.9e94b8",
+        "name": "daylight",
+        "links": [
+            "39c70bff.be9dc4"
+        ],
+        "x": 700,
+        "y": 80,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "b237dff9.864da",
+        "type": "link out",
+        "z": "8ef7505f.8ffdf",
+        "g": "f1ed0782.9e94b8",
+        "name": "trigger",
+        "links": [
+            "e74158af.c17e38"
+        ],
+        "x": 710,
+        "y": 260,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "39c70bff.be9dc4",
+        "type": "link in",
+        "z": "8ef7505f.8ffdf",
+        "g": "546207f6.df72f8",
+        "name": "Astro daylight",
+        "links": [
+            "65ee9e9a.21f"
+        ],
+        "x": 130,
+        "y": 380,
+        "wires": [
+            [
+                "67974905.ff7148"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "e74158af.c17e38",
+        "type": "link in",
+        "z": "8ef7505f.8ffdf",
+        "g": "546207f6.df72f8",
+        "name": "Astro trigger",
+        "links": [
+            "b237dff9.864da"
+        ],
+        "x": 130,
+        "y": 440,
+        "wires": [
+            [
+                "be287d70.8384b"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "e149f07f.be4eb",
+        "type": "debug",
+        "z": "8ef7505f.8ffdf",
+        "g": "546207f6.df72f8",
+        "name": "Astro daylight",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "be287d70.8384b",
+        "type": "debug",
+        "z": "8ef7505f.8ffdf",
+        "g": "546207f6.df72f8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 690,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "67974905.ff7148",
+        "type": "function",
+        "z": "8ef7505f.8ffdf",
+        "name": "Status",
+        "func": "var time = new Date().toISOString().substring(11,16);\n\nnode.status({fill:\"green\",text:time});\n\n\nmsg.time = time;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 470,
+        "y": 380,
+        "wires": [
+            [
+                "e149f07f.be4eb"
+            ]
+        ],
+        "icon": "node-red-dashboard/ui_switch.png"
     }
 ]
