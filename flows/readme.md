@@ -18,7 +18,7 @@
 ## Webpage
 [![HTML](flows_webpage_tab.jpg)](flows_webpage_tab.json)  
 
-## Sun rise/set
+## Sun rise/set (astro)
 [![Sun](flows_sun_tab.jpg)](flows_sun_tab.json)  
 
 ## Backup (manually)
