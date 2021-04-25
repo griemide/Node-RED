@@ -4,26 +4,57 @@
         "type": "tab",
         "label": "Astro",
         "disabled": false,
-        "info": ""
+        "info": "https://www.toptal.com/software/definitive-guide-to-datetime-manipulation"
+    },
+    {
+        "id": "243a8a0e.82e4c6",
+        "type": "group",
+        "z": "8ef7505f.8ffdf",
+        "name": "HomePoint application - Astro function",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "b5624d4b.99664",
+            "ab6794ac.6fe8b8"
+        ],
+        "x": 34,
+        "y": 659,
+        "w": 752,
+        "h": 82
+    },
+    {
+        "id": "2fe06efb.1e7f62",
+        "type": "group",
+        "z": "8ef7505f.8ffdf",
+        "name": "MQTT application - Astro function",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "498d445.33cc3bc",
+            "d097a21.f37fa6"
+        ],
+        "x": 94,
+        "y": 519,
+        "w": 692,
+        "h": 82
     },
     {
         "id": "546207f6.df72f8",
         "type": "group",
         "z": "8ef7505f.8ffdf",
+        "name": "further Astro processing",
         "style": {
-            "stroke": "#999999",
-            "stroke-opacity": "1",
-            "fill": "none",
-            "fill-opacity": "1",
-            "label": true,
-            "label-position": "nw",
-            "color": "#a4a4a4"
+            "label": true
         },
         "nodes": [
             "39c70bff.be9dc4",
             "e74158af.c17e38",
             "e149f07f.be4eb",
-            "be287d70.8384b"
+            "be287d70.8384b",
+            "d08ae819.c1b448",
+            "67974905.ff7148"
         ],
         "x": 34,
         "y": 339,
@@ -71,9 +102,9 @@
         "type": "comment",
         "z": "8ef7505f.8ffdf",
         "g": "f1ed0782.9e94b8",
-        "name": "Location: 50.876987 / 9.691384 (DE HEF AF104)",
+        "name": "Location: 50.876987 / 9.691384 (DE HEF AF104) - Serverlocation (RPi)",
         "info": "[Home](http://www.gries.name/Maps/default.shtm)",
-        "x": 240,
+        "x": 310,
         "y": 260,
         "wires": []
     },
@@ -161,13 +192,13 @@
         "type": "function",
         "z": "8ef7505f.8ffdf",
         "g": "f1ed0782.9e94b8",
-        "name": "Time",
+        "name": "Time (UTC)",
         "func": "var time = new Date().toISOString().substring(11,16);\n\nnode.status({fill:\"green\",text:time});\n\n\nmsg.time = time;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 510,
+        "x": 490,
         "y": 140,
         "wires": [
             [
@@ -182,13 +213,13 @@
         "type": "function",
         "z": "8ef7505f.8ffdf",
         "g": "f1ed0782.9e94b8",
-        "name": "Last Trigger (local)",
-        "func": "var time = new Date().toISOString().substring(11,16);\n\nnode.status({fill:\"green\",text:time});\n\n\nmsg.time = time;\n\nreturn msg;",
+        "name": "Last Sun Trigger (UTC)",
+        "func": "// var time = new Date().toISOString().substring(11,16);\nconst utcTime = new Date().toUTCString();\n\nnode.status({fill:\"green\",text:utcTime});\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 470,
+        "x": 450,
         "y": 200,
         "wires": [
             [
@@ -196,7 +227,8 @@
                 "b237dff9.864da"
             ]
         ],
-        "icon": "node-red-dashboard/ui_date_picker.png"
+        "icon": "node-red-dashboard/ui_date_picker.png",
+        "info": "https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString\n\nhttps://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Date/toUTCString"
     },
     {
         "id": "65ee9e9a.21f",
@@ -219,7 +251,8 @@
         "g": "f1ed0782.9e94b8",
         "name": "trigger",
         "links": [
-            "e74158af.c17e38"
+            "e74158af.c17e38",
+            "d097a21.f37fa6"
         ],
         "x": 710,
         "y": 260,
@@ -239,7 +272,7 @@
         "y": 380,
         "wires": [
             [
-                "67974905.ff7148"
+                "d08ae819.c1b448"
             ]
         ],
         "l": true
@@ -257,7 +290,7 @@
         "y": 440,
         "wires": [
             [
-                "be287d70.8384b"
+                "bf5ae167.fe64"
             ]
         ],
         "l": true
@@ -290,10 +323,11 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "true",
+        "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 690,
+        "x": 670,
         "y": 440,
         "wires": []
     },
@@ -301,13 +335,14 @@
         "id": "67974905.ff7148",
         "type": "function",
         "z": "8ef7505f.8ffdf",
+        "g": "546207f6.df72f8",
         "name": "Status",
-        "func": "var time = new Date().toISOString().substring(11,16);\n\nnode.status({fill:\"green\",text:time});\n\n\nmsg.time = time;\n\nreturn msg;",
+        "func": "var time = new Date().toISOString().substring(11,16);\nvar status = msg.payload;\nstatus = status + \" (\" + time + \")\";\n\nnode.status({fill:\"green\",text:status});\n\nmsg.time = time;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 470,
+        "x": 330,
         "y": 380,
         "wires": [
             [
@@ -315,5 +350,150 @@
             ]
         ],
         "icon": "node-red-dashboard/ui_switch.png"
+    },
+    {
+        "id": "d08ae819.c1b448",
+        "type": "change",
+        "z": "8ef7505f.8ffdf",
+        "g": "546207f6.df72f8",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "0",
+                "fromt": "num",
+                "to": "false",
+                "tot": "bool"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "1",
+                "fromt": "num",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 235,
+        "y": 380,
+        "wires": [
+            [
+                "67974905.ff7148"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "b5624d4b.99664",
+        "type": "mqtt in",
+        "z": "8ef7505f.8ffdf",
+        "g": "243a8a0e.82e4c6",
+        "name": "",
+        "topic": "rpizw3/astro/daylight",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "f75e8571.184d98",
+        "x": 150,
+        "y": 700,
+        "wires": [
+            [
+                "ab6794ac.6fe8b8"
+            ]
+        ]
+    },
+    {
+        "id": "498d445.33cc3bc",
+        "type": "mqtt out",
+        "z": "8ef7505f.8ffdf",
+        "g": "2fe06efb.1e7f62",
+        "name": "",
+        "topic": "rpizw3/astro/daylight",
+        "qos": "",
+        "retain": "",
+        "broker": "f75e8571.184d98",
+        "x": 660,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "ab6794ac.6fe8b8",
+        "type": "mqtt out",
+        "z": "8ef7505f.8ffdf",
+        "g": "243a8a0e.82e4c6",
+        "name": "",
+        "topic": "homepoint/astro/daylight",
+        "qos": "",
+        "retain": "",
+        "broker": "f75e8571.184d98",
+        "x": 650,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "d097a21.f37fa6",
+        "type": "link in",
+        "z": "8ef7505f.8ffdf",
+        "g": "2fe06efb.1e7f62",
+        "name": "",
+        "links": [
+            "b237dff9.864da"
+        ],
+        "x": 135,
+        "y": 560,
+        "wires": [
+            [
+                "498d445.33cc3bc"
+            ]
+        ]
+    },
+    {
+        "id": "bf5ae167.fe64",
+        "type": "function",
+        "z": "8ef7505f.8ffdf",
+        "name": "Last Trigger (local)",
+        "func": "const date1 = new Date();\nconst timestampUTC = new Date().toISOString();\nconst timestampLocal = new Date().toLocaleTimeString('de-DE');\nvar offsetTZ = date1.getTimezoneOffset();\n\nnode.status({fill:\"green\",text:timestampLocal});\n\nmsg.timestampUTC = timestampUTC;\nmsg.timestampLocal = timestampLocal;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 370,
+        "y": 440,
+        "wires": [
+            [
+                "be287d70.8384b"
+            ]
+        ],
+        "icon": "node-red-dashboard/ui_date_picker.png",
+        "info": "https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString"
+    },
+    {
+        "id": "f75e8571.184d98",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "RPi3B",
+        "broker": "192.168.0.90",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": false,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
     }
 ]
