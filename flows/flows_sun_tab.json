@@ -19,8 +19,8 @@
             "ab6794ac.6fe8b8"
         ],
         "x": 34,
-        "y": 659,
-        "w": 752,
+        "y": 739,
+        "w": 772,
         "h": 82
     },
     {
@@ -33,12 +33,15 @@
         },
         "nodes": [
             "498d445.33cc3bc",
-            "d097a21.f37fa6"
+            "d097a21.f37fa6",
+            "45f456d.ff611a8",
+            "33d9d0a9.48997",
+            "c9ee5ac5.0040b8"
         ],
-        "x": 94,
+        "x": 34,
         "y": 519,
-        "w": 692,
-        "h": 82
+        "w": 772,
+        "h": 182
     },
     {
         "id": "546207f6.df72f8",
@@ -51,10 +54,10 @@
         "nodes": [
             "39c70bff.be9dc4",
             "e74158af.c17e38",
-            "e149f07f.be4eb",
-            "be287d70.8384b",
             "d08ae819.c1b448",
-            "67974905.ff7148"
+            "67974905.ff7148",
+            "2e7bd131.e6b43e",
+            "9a978910.b94a28"
         ],
         "x": 34,
         "y": 339,
@@ -79,7 +82,8 @@
             "9f056da6.31f8c",
             "65ee9e9a.21f",
             "eacb72fa.19978",
-            "b237dff9.864da"
+            "b237dff9.864da",
+            "d860eda9.443a7"
         ],
         "x": 34,
         "y": 39,
@@ -252,7 +256,8 @@
         "name": "trigger",
         "links": [
             "e74158af.c17e38",
-            "d097a21.f37fa6"
+            "d097a21.f37fa6",
+            "33d9d0a9.48997"
         ],
         "x": 710,
         "y": 260,
@@ -264,11 +269,11 @@
         "type": "link in",
         "z": "8ef7505f.8ffdf",
         "g": "546207f6.df72f8",
-        "name": "Astro daylight",
+        "name": "daylight-in",
         "links": [
             "65ee9e9a.21f"
         ],
-        "x": 130,
+        "x": 120,
         "y": 380,
         "wires": [
             [
@@ -282,11 +287,11 @@
         "type": "link in",
         "z": "8ef7505f.8ffdf",
         "g": "546207f6.df72f8",
-        "name": "Astro trigger",
+        "name": "trigger-in",
         "links": [
             "b237dff9.864da"
         ],
-        "x": 130,
+        "x": 120,
         "y": 440,
         "wires": [
             [
@@ -296,57 +301,21 @@
         "l": true
     },
     {
-        "id": "e149f07f.be4eb",
-        "type": "debug",
-        "z": "8ef7505f.8ffdf",
-        "g": "546207f6.df72f8",
-        "name": "Astro daylight",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 680,
-        "y": 380,
-        "wires": []
-    },
-    {
-        "id": "be287d70.8384b",
-        "type": "debug",
-        "z": "8ef7505f.8ffdf",
-        "g": "546207f6.df72f8",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 670,
-        "y": 440,
-        "wires": []
-    },
-    {
         "id": "67974905.ff7148",
         "type": "function",
         "z": "8ef7505f.8ffdf",
         "g": "546207f6.df72f8",
-        "name": "Status",
+        "name": "Status (local)",
         "func": "var time = new Date().toISOString().substring(11,16);\nvar status = msg.payload;\nstatus = status + \" (\" + time + \")\";\n\nnode.status({fill:\"green\",text:status});\n\nmsg.time = time;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 330,
+        "x": 350,
         "y": 380,
         "wires": [
             [
-                "e149f07f.be4eb"
+                "2e7bd131.e6b43e"
             ]
         ],
         "icon": "node-red-dashboard/ui_switch.png"
@@ -402,7 +371,7 @@
         "datatype": "auto",
         "broker": "f75e8571.184d98",
         "x": 150,
-        "y": 700,
+        "y": 780,
         "wires": [
             [
                 "ab6794ac.6fe8b8"
@@ -419,8 +388,8 @@
         "qos": "",
         "retain": "",
         "broker": "f75e8571.184d98",
-        "x": 660,
-        "y": 560,
+        "x": 680,
+        "y": 600,
         "wires": []
     },
     {
@@ -433,8 +402,8 @@
         "qos": "",
         "retain": "",
         "broker": "f75e8571.184d98",
-        "x": 650,
-        "y": 700,
+        "x": 670,
+        "y": 780,
         "wires": []
     },
     {
@@ -442,24 +411,25 @@
         "type": "link in",
         "z": "8ef7505f.8ffdf",
         "g": "2fe06efb.1e7f62",
-        "name": "",
+        "name": "daylight-in",
         "links": [
             "b237dff9.864da"
         ],
-        "x": 135,
-        "y": 560,
+        "x": 120,
+        "y": 600,
         "wires": [
             [
                 "498d445.33cc3bc"
             ]
-        ]
+        ],
+        "l": true
     },
     {
         "id": "bf5ae167.fe64",
         "type": "function",
         "z": "8ef7505f.8ffdf",
         "name": "Last Trigger (local)",
-        "func": "const date1 = new Date();\nconst timestampUTC = new Date().toISOString();\nconst timestampLocal = new Date().toLocaleTimeString('de-DE');\nvar offsetTZ = date1.getTimezoneOffset();\n\nnode.status({fill:\"green\",text:timestampLocal});\n\nmsg.timestampUTC = timestampUTC;\nmsg.timestampLocal = timestampLocal;\n\nreturn msg;",
+        "func": "const timestampUTC = new Date().toISOString();\nconst timestampLocal = new Date().toLocaleTimeString('de-DE');\n\nnode.status({fill:\"green\",text:timestampLocal});\n\nmsg.timestampUTC = timestampUTC;\nmsg.timestampLocal = timestampLocal;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -468,11 +438,89 @@
         "y": 440,
         "wires": [
             [
-                "be287d70.8384b"
+                "9a978910.b94a28"
             ]
         ],
         "icon": "node-red-dashboard/ui_date_picker.png",
         "info": "https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString"
+    },
+    {
+        "id": "d860eda9.443a7",
+        "type": "comment",
+        "z": "8ef7505f.8ffdf",
+        "g": "f1ed0782.9e94b8",
+        "name": "Check RPi Timezone",
+        "info": "# Raspberyy Pi configuration\n\ncheck `date`  \nchange ```sudo raspi-config```\ncheck `date` (again) \n\n### References\nManual [Grundkonfiguration](http://www.elektronik-kompendium.de/sites/raspberry-pi/1906291.htm) - german",
+        "x": 160,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "2e7bd131.e6b43e",
+        "type": "link out",
+        "z": "8ef7505f.8ffdf",
+        "g": "546207f6.df72f8",
+        "name": "Astro daylight",
+        "links": [],
+        "x": 700,
+        "y": 380,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "9a978910.b94a28",
+        "type": "link out",
+        "z": "8ef7505f.8ffdf",
+        "g": "546207f6.df72f8",
+        "name": "Astro trigger",
+        "links": [],
+        "x": 710,
+        "y": 440,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "45f456d.ff611a8",
+        "type": "comment",
+        "z": "8ef7505f.8ffdf",
+        "g": "2fe06efb.1e7f62",
+        "name": "using UTC for MQTT back-end",
+        "info": "",
+        "x": 390,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "33d9d0a9.48997",
+        "type": "link in",
+        "z": "8ef7505f.8ffdf",
+        "g": "2fe06efb.1e7f62",
+        "name": "trigger-in",
+        "links": [
+            "b237dff9.864da"
+        ],
+        "x": 120,
+        "y": 660,
+        "wires": [
+            [
+                "c9ee5ac5.0040b8"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "c9ee5ac5.0040b8",
+        "type": "mqtt out",
+        "z": "8ef7505f.8ffdf",
+        "g": "2fe06efb.1e7f62",
+        "name": "",
+        "topic": "rpizw3/astro/trigger",
+        "qos": "",
+        "retain": "",
+        "broker": "f75e8571.184d98",
+        "x": 690,
+        "y": 660,
+        "wires": []
     },
     {
         "id": "f75e8571.184d98",
