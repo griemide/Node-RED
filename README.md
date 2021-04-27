@@ -18,9 +18,9 @@ Offizielle Anleitung für [Raspberry Pi](https://nodered.org/docs/getting-starte
 **Hinweis:** lokale Installation ohne npm wurde verwendet ```sudo apt-get install nodered```
 
 ### Upgrading Node-RED
-```sudo npm install -g --unsafe-perm node-red```
+```sudo npm install -g --unsafe-perm node-red```  
 Upgrade scrpt see [Geeting started on Raspberry Pi](https://nodered.org/docs/getting-started/raspberrypi)  
-```bash <(curl -sL https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered)```  - abgeufen am 2021-04-27
+```bash <(curl -sL https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered)```  - Retrieved 2021-04-27  
 Upgrade [example](images/Node.RED_Upgrade.jpg) -  upgrated 2021-04-27
 
 
