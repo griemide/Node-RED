@@ -1,0 +1,711 @@
+
+***************************************
+
+Started : Mi 28. Apr 07:54:35 CEST 2021
+Running for user pi at /home/pi
+Found global nodes:   :
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Paketlisten werden gelesen...
+Abhängigkeitsbaum wird aufgebaut....
+Statusinformationen werden eingelesen....
+Paket »nodered« ist nicht installiert, wird also auch nicht entfernt.
+0 aktualisiert, 0 neu installiert, 0 zu entfernen und 91 nicht aktualisiert.
+Already have nodejs v12.22.1
+Now install nodejs
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Paketlisten werden gelesen...
+Abhängigkeitsbaum wird aufgebaut....
+Statusinformationen werden eingelesen....
+Paket »nodejs-legacy« ist nicht installiert, wird also auch nicht entfernt.
+Paket »nodejs« ist nicht installiert, wird also auch nicht entfernt.
+Paket »npm« ist nicht installiert, wird also auch nicht entfernt.
+0 aktualisiert, 0 neu installiert, 0 zu entfernen und 91 nicht aktualisiert.
+Versions: node:v12.22.1 npm:6.14.12
+npm WARN using --force I sure hope you know what you are doing.
+Now install Node-RED
+npm WARN deprecated bcrypt@3.0.6: versions < v5.0.0 do not handle NUL in passwords properly
+npm WARN deprecated node-pre-gyp@0.12.0: Please upgrade to @mapbox/node-pre-gyp: the non-scoped node-pre-gyp package is deprecated and only the @mapbox scoped package will recieve updates in the future
+npm WARN deprecated request@2.88.0: request has been deprecated, see https://github.com/request/request/issues/3142
+npm WARN deprecated har-validator@5.1.5: this library is no longer supported
+npm WARN deprecated bcrypt@3.0.8: versions < v5.0.0 do not handle NUL in passwords properly
+npm WARN deprecated node-pre-gyp@0.14.0: Please upgrade to @mapbox/node-pre-gyp: the non-scoped node-pre-gyp package is deprecated and only the @mapbox scoped package will recieve updates in the future
+/usr/bin/node-red -> /usr/lib/node_modules/node-red/red.js
+/usr/bin/node-red-pi -> /usr/lib/node_modules/node-red/bin/node-red-pi
+
+> bcrypt@3.0.6 install /usr/lib/node_modules/node-red/node_modules/bcrypt
+> node-pre-gyp install --fallback-to-build
+
+node-pre-gyp WARN Using request for node-pre-gyp https download 
+node-pre-gyp WARN Tried to download(404): https://github.com/kelektiv/node.bcrypt.js/releases/download/v3.0.6/bcrypt_lib-v3.0.6-node-v72-linux-arm-glibc.tar.gz 
+node-pre-gyp WARN Pre-built binaries not found for bcrypt@3.0.6 and node@12.22.1 (node-v72 ABI, glibc) (falling back to source compile with node-gyp) 
+make: Verzeichnis „/usr/lib/node_modules/node-red/node_modules/bcrypt/build“ wird betreten
+  CXX(target) Release/obj.target/bcrypt_lib/src/blowfish.o
+  CXX(target) Release/obj.target/bcrypt_lib/src/bcrypt.o
+  CXX(target) Release/obj.target/bcrypt_lib/src/bcrypt_node.o
+In file included from ../src/bcrypt_node.cc:1:
+../../nan/nan.h: In function ‘void Nan::AsyncQueueWorker(Nan::AsyncWorker*)’:
+../../nan/nan.h:2232:62: warning: cast between incompatible function types from ‘void (*)(uv_work_t*)’ {aka ‘void (*)(uv_work_s*)’} to ‘uv_after_work_cb’ {aka ‘void (*)(uv_work_s*, int)’} [-Wcast-function-type]
+     , reinterpret_cast<uv_after_work_cb>(AsyncExecuteComplete)
+                                                              ^
+In file included from ../../nan/nan.h:53,
+                 from ../src/bcrypt_node.cc:1:
+../src/bcrypt_node.cc: At global scope:
+/root/.cache/node-gyp/12.22.1/include/node/node.h:736:43: warning: cast between incompatible function types from ‘void (*)(Nan::ADDON_REGISTER_FUNCTION_ARGS_TYPE)’ {aka ‘void (*)(v8::Local<v8::Object>)’} to ‘node::addon_register_func’ {aka ‘void (*)(v8::Local<v8::Object>, v8::Local<v8::Value>, void*)’} [-Wcast-function-type]
+       (node::addon_register_func) (regfunc),                          \
+                                           ^
+/root/.cache/node-gyp/12.22.1/include/node/node.h:770:3: note: in expansion of macro ‘NODE_MODULE_X’
+   NODE_MODULE_X(modname, regfunc, NULL, 0)  // NOLINT (readability/null_usage)
+   ^~~~~~~~~~~~~
+../src/bcrypt_node.cc:378:1: note: in expansion of macro ‘NODE_MODULE’
+ NODE_MODULE(bcrypt_lib, init);
+ ^~~~~~~~~~~
+  SOLINK_MODULE(target) Release/obj.target/bcrypt_lib.node
+  COPY Release/bcrypt_lib.node
+  COPY /usr/lib/node_modules/node-red/node_modules/bcrypt/lib/binding/bcrypt_lib.node
+  TOUCH Release/obj.target/action_after_build.stamp
+make: Verzeichnis „/usr/lib/node_modules/node-red/node_modules/bcrypt/build“ wird verlassen
+
+> bcrypt@3.0.8 install /usr/lib/node_modules/node-red/node_modules/node-red-admin/node_modules/bcrypt
+> node-pre-gyp install --fallback-to-build
+
+node-pre-gyp WARN Using request for node-pre-gyp https download 
+node-pre-gyp WARN Tried to download(404): https://github.com/kelektiv/node.bcrypt.js/releases/download/v3.0.8/bcrypt_lib-v3.0.8-node-v72-linux-arm-glibc.tar.gz 
+node-pre-gyp WARN Pre-built binaries not found for bcrypt@3.0.8 and node@12.22.1 (node-v72 ABI, glibc) (falling back to source compile with node-gyp) 
+make: Verzeichnis „/usr/lib/node_modules/node-red/node_modules/node-red-admin/node_modules/bcrypt/build“ wird betreten
+  CXX(target) Release/obj.target/bcrypt_lib/src/blowfish.o
+  CXX(target) Release/obj.target/bcrypt_lib/src/bcrypt.o
+  CXX(target) Release/obj.target/bcrypt_lib/src/bcrypt_node.o
+In file included from ../src/bcrypt_node.cc:1:
+../../nan/nan.h: In function ‘void Nan::AsyncQueueWorker(Nan::AsyncWorker*)’:
+../../nan/nan.h:2298:62: warning: cast between incompatible function types from ‘void (*)(uv_work_t*)’ {aka ‘void (*)(uv_work_s*)’} to ‘uv_after_work_cb’ {aka ‘void (*)(uv_work_s*, int)’} [-Wcast-function-type]
+     , reinterpret_cast<uv_after_work_cb>(AsyncExecuteComplete)
+                                                              ^
+In file included from ../../nan/nan.h:54,
+                 from ../src/bcrypt_node.cc:1:
+../src/bcrypt_node.cc: At global scope:
+/root/.cache/node-gyp/12.22.1/include/node/node.h:736:43: warning: cast between incompatible function types from ‘void (*)(Nan::ADDON_REGISTER_FUNCTION_ARGS_TYPE)’ {aka ‘void (*)(v8::Local<v8::Object>)’} to ‘node::addon_register_func’ {aka ‘void (*)(v8::Local<v8::Object>, v8::Local<v8::Value>, void*)’} [-Wcast-function-type]
+       (node::addon_register_func) (regfunc),                          \
+                                           ^
+/root/.cache/node-gyp/12.22.1/include/node/node.h:770:3: note: in expansion of macro ‘NODE_MODULE_X’
+   NODE_MODULE_X(modname, regfunc, NULL, 0)  // NOLINT (readability/null_usage)
+   ^~~~~~~~~~~~~
+../src/bcrypt_node.cc:359:1: note: in expansion of macro ‘NODE_MODULE’
+ NODE_MODULE(bcrypt_lib, init);
+ ^~~~~~~~~~~
+  SOLINK_MODULE(target) Release/obj.target/bcrypt_lib.node
+  COPY Release/bcrypt_lib.node
+  COPY /usr/lib/node_modules/node-red/node_modules/node-red-admin/node_modules/bcrypt/lib/binding/bcrypt_lib.node
+  TOUCH Release/obj.target/action_after_build.stamp
+make: Verzeichnis „/usr/lib/node_modules/node-red/node_modules/node-red-admin/node_modules/bcrypt/build“ wird verlassen
++ node-red@1.3.3
+added 350 packages from 316 contributors in 372.76s
+1.3.3 
+Now create basic package.json for the user and move any global nodes
+Installing extra nodes: node-red-node-pi-gpio@latest node-red-node-random@latest node-red-node-ping@latest node-red-contrib-play-audio@latest node-red-node-smooth@latest node-red-node-serialport@latest :
++ node-red-node-smooth@0.1.2
++ node-red-contrib-play-audio@2.5.0
++ node-red-node-serialport@0.14.0
++ node-red-node-random@0.4.0
++ node-red-node-pi-gpio@1.2.3
++ node-red-node-ping@0.3.1
+updated 6 packages in 88.644s
+
+> @abandonware/noble@1.9.2-13 install /home/pi/.node-red/node_modules/@abandonware/noble
+> node-gyp rebuild
+
+make: Verzeichnis „/home/pi/.node-red/node_modules/@abandonware/noble/build“ wird betreten
+  SOLINK_MODULE(target) Release/obj.target/noble.node
+  COPY Release/noble.node
+make: Verzeichnis „/home/pi/.node-red/node_modules/@abandonware/noble/build“ wird verlassen
+
+> @serialport/bindings@9.0.7 install /home/pi/.node-red/node_modules/@serialport/bindings
+> prebuild-install --tag-prefix @serialport/bindings@ || node-gyp rebuild
+
+prebuild-install WARN install No prebuilt binaries found (target=12.22.1 runtime=node arch=arm libc= platform=linux)
+make: Verzeichnis „/home/pi/.node-red/node_modules/@serialport/bindings/build“ wird betreten
+  CXX(target) Release/obj.target/bindings/src/serialport.o
+../src/serialport.cpp: In function ‘Nan::NAN_METHOD_RETURN_TYPE Open(Nan::NAN_METHOD_ARGS_TYPE)’:
+../src/serialport.cpp:78:69: warning: cast between incompatible function types from ‘void (*)(uv_work_t*)’ {aka ‘void (*)(uv_work_s*)’} to ‘uv_after_work_cb’ {aka ‘void (*)(uv_work_s*, int)’} [-Wcast-function-type]
+   uv_queue_work(uv_default_loop(), req, EIO_Open, (uv_after_work_cb)EIO_AfterOpen);
+                                                                     ^~~~~~~~~~~~~
+../src/serialport.cpp: In function ‘Nan::NAN_METHOD_RETURN_TYPE Update(Nan::NAN_METHOD_ARGS_TYPE)’:
+../src/serialport.cpp:135:71: warning: cast between incompatible function types from ‘void (*)(uv_work_t*)’ {aka ‘void (*)(uv_work_s*)’} to ‘uv_after_work_cb’ {aka ‘void (*)(uv_work_s*, int)’} [-Wcast-function-type]
+   uv_queue_work(uv_default_loop(), req, EIO_Update, (uv_after_work_cb)EIO_AfterUpdate);
+                                                                       ^~~~~~~~~~~~~~~
+../src/serialport.cpp: In function ‘Nan::NAN_METHOD_RETURN_TYPE Close(Nan::NAN_METHOD_ARGS_TYPE)’:
+../src/serialport.cpp:175:70: warning: cast between incompatible function types from ‘void (*)(uv_work_t*)’ {aka ‘void (*)(uv_work_s*)’} to ‘uv_after_work_cb’ {aka ‘void (*)(uv_work_s*, int)’} [-Wcast-function-type]
+   uv_queue_work(uv_default_loop(), req, EIO_Close, (uv_after_work_cb)EIO_AfterClose);
+                                                                      ^~~~~~~~~~~~~~
+../src/serialport.cpp: In function ‘Nan::NAN_METHOD_RETURN_TYPE Flush(Nan::NAN_METHOD_ARGS_TYPE)’:
+../src/serialport.cpp:215:70: warning: cast between incompatible function types from ‘void (*)(uv_work_t*)’ {aka ‘void (*)(uv_work_s*)’} to ‘uv_after_work_cb’ {aka ‘void (*)(uv_work_s*, int)’} [-Wcast-function-type]
+   uv_queue_work(uv_default_loop(), req, EIO_Flush, (uv_after_work_cb)EIO_AfterFlush);
+                                                                      ^~~~~~~~~~~~~~
+../src/serialport.cpp: In function ‘Nan::NAN_METHOD_RETURN_TYPE Set(Nan::NAN_METHOD_ARGS_TYPE)’:
+../src/serialport.cpp:271:68: warning: cast between incompatible function types from ‘void (*)(uv_work_t*)’ {aka ‘void (*)(uv_work_s*)’} to ‘uv_after_work_cb’ {aka ‘void (*)(uv_work_s*, int)’} [-Wcast-function-type]
+   uv_queue_work(uv_default_loop(), req, EIO_Set, (uv_after_work_cb)EIO_AfterSet);
+                                                                    ^~~~~~~~~~~~
+../src/serialport.cpp: In function ‘Nan::NAN_METHOD_RETURN_TYPE Get(Nan::NAN_METHOD_ARGS_TYPE)’:
+../src/serialport.cpp:316:68: warning: cast between incompatible function types from ‘void (*)(uv_work_t*)’ {aka ‘void (*)(uv_work_s*)’} to ‘uv_after_work_cb’ {aka ‘void (*)(uv_work_s*, int)’} [-Wcast-function-type]
+   uv_queue_work(uv_default_loop(), req, EIO_Get, (uv_after_work_cb)EIO_AfterGet);
+                                                                    ^~~~~~~~~~~~
+../src/serialport.cpp: In function ‘Nan::NAN_METHOD_RETURN_TYPE GetBaudRate(Nan::NAN_METHOD_ARGS_TYPE)’:
+../src/serialport.cpp:366:76: warning: cast between incompatible function types from ‘void (*)(uv_work_t*)’ {aka ‘void (*)(uv_work_s*)’} to ‘uv_after_work_cb’ {aka ‘void (*)(uv_work_s*, int)’} [-Wcast-function-type]
+   uv_queue_work(uv_default_loop(), req, EIO_GetBaudRate, (uv_after_work_cb)EIO_AfterGetBaudRate);
+                                                                            ^~~~~~~~~~~~~~~~~~~~
+../src/serialport.cpp: In function ‘Nan::NAN_METHOD_RETURN_TYPE Drain(Nan::NAN_METHOD_ARGS_TYPE)’:
+../src/serialport.cpp:412:70: warning: cast between incompatible function types from ‘void (*)(uv_work_t*)’ {aka ‘void (*)(uv_work_s*)’} to ‘uv_after_work_cb’ {aka ‘void (*)(uv_work_s*, int)’} [-Wcast-function-type]
+   uv_queue_work(uv_default_loop(), req, EIO_Drain, (uv_after_work_cb)EIO_AfterDrain);
+                                                                      ^~~~~~~~~~~~~~
+../src/serialport.cpp: At global scope:
+../src/serialport.cpp:433:28: warning: unnecessary parentheses in declaration of ‘ToParityEnum’ [-Wparentheses]
+ SerialPortParity NAN_INLINE(ToParityEnum(const v8::Local<v8::String>& v8str)) {
+                            ^
+../src/serialport.cpp:452:30: warning: unnecessary parentheses in declaration of ‘ToStopBitEnum’ [-Wparentheses]
+ SerialPortStopBits NAN_INLINE(ToStopBitEnum(double stopBits)) {
+                              ^
+In file included from ../../../nan/nan.h:56,
+                 from ../src/./serialport.h:6,
+                 from ../src/serialport.cpp:1:
+/home/pi/.cache/node-gyp/12.22.1/include/node/node.h:736:43: warning: cast between incompatible function types from ‘void (*)(Nan::ADDON_REGISTER_FUNCTION_ARGS_TYPE)’ {aka ‘void (*)(v8::Local<v8::Object>)’} to ‘node::addon_register_func’ {aka ‘void (*)(v8::Local<v8::Object>, v8::Local<v8::Value>, void*)’} [-Wcast-function-type]
+       (node::addon_register_func) (regfunc),                          \
+                                           ^
+/home/pi/.cache/node-gyp/12.22.1/include/node/node.h:770:3: note: in expansion of macro ‘NODE_MODULE_X’
+   NODE_MODULE_X(modname, regfunc, NULL, 0)  // NOLINT (readability/null_usage)
+   ^~~~~~~~~~~~~
+../src/serialport.cpp:486:1: note: in expansion of macro ‘NODE_MODULE’
+ NODE_MODULE(serialport, init);
+ ^~~~~~~~~~~
+  CXX(target) Release/obj.target/bindings/src/serialport_unix.o
+../src/serialport_unix.cpp: In function ‘int setup(int, OpenBaton*)’:
+../src/serialport_unix.cpp:176:60: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 1005 [-Wformat-truncation=]
+     snprintf(data->errorString, sizeof(data->errorString), "Error %s Cannot open %s", strerror(errno), data->path);
+                                                            ^~~~~~~~~~~~~~~~~~~~~~~~~
+../src/serialport_unix.cpp:176:13: note: ‘snprintf’ output 20 or more bytes (assuming 1043) into a destination of size 1024
+     snprintf(data->errorString, sizeof(data->errorString), "Error %s Cannot open %s", strerror(errno), data->path);
+     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/serialport_unix.cpp: In function ‘void EIO_Open(uv_work_t*)’:
+../src/serialport_unix.cpp:86:60: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 1003 [-Wformat-truncation=]
+     snprintf(data->errorString, sizeof(data->errorString), "Error: %s, cannot open %s", strerror(errno), data->path);
+                                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/serialport_unix.cpp:86:13: note: ‘snprintf’ output 22 or more bytes (assuming 1045) into a destination of size 1024
+     snprintf(data->errorString, sizeof(data->errorString), "Error: %s, cannot open %s", strerror(errno), data->path);
+     ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  CXX(target) Release/obj.target/bindings/src/poller.o
+  CXX(target) Release/obj.target/bindings/src/serialport_linux.o
+  SOLINK_MODULE(target) Release/obj.target/bindings.node
+  COPY Release/bindings.node
+make: Verzeichnis „/home/pi/.node-red/node_modules/@serialport/bindings/build“ wird verlassen
+
+> @abandonware/bluetooth-hci-socket@0.5.3-7 install /home/pi/.node-red/node_modules/@abandonware/bluetooth-hci-socket
+> node-pre-gyp install --fallback-to-build
+
+node-pre-gyp WARN Using request for node-pre-gyp https download 
+[@abandonware/bluetooth-hci-socket] Success: "/home/pi/.node-red/node_modules/@abandonware/bluetooth-hci-socket/lib/binding/bluetooth_hci_socket.node" already installed
+Pass --update-binary to reinstall or --build-from-source to recompile
+
+> bcrypt@3.0.8 install /home/pi/.node-red/node_modules/bcrypt
+> node-pre-gyp install --fallback-to-build
+
+node-pre-gyp WARN Using request for node-pre-gyp https download 
+[bcrypt] Success: "/home/pi/.node-red/node_modules/bcrypt/lib/binding/bcrypt_lib.node" already installed
+Pass --update-binary to reinstall or --build-from-source to recompile
+
+> usb@1.7.0 install /home/pi/.node-red/node_modules/usb
+> prebuild-install --runtime napi --verbose || node-gyp rebuild
+
+prebuild-install info begin Prebuild-install version 5.3.6
+prebuild-install info looking for cached prebuild @ /home/pi/.npm/_prebuilds/801162-usb-v1.7.0-napi-v4-linux-arm.tar.gz
+prebuild-install http request GET https://github.com/tessel/node-usb/releases/download/v1.7.0/usb-v1.7.0-napi-v4-linux-arm.tar.gz
+prebuild-install http 200 https://github.com/tessel/node-usb/releases/download/v1.7.0/usb-v1.7.0-napi-v4-linux-arm.tar.gz
+prebuild-install info downloading to @ /home/pi/.npm/_prebuilds/801162-usb-v1.7.0-napi-v4-linux-arm.tar.gz.9256-44f97fbd18c93.tmp
+prebuild-install info renaming to @ /home/pi/.npm/_prebuilds/801162-usb-v1.7.0-napi-v4-linux-arm.tar.gz
+prebuild-install info unpacking @ /home/pi/.npm/_prebuilds/801162-usb-v1.7.0-napi-v4-linux-arm.tar.gz
+prebuild-install info unpack resolved to /home/pi/.node-red/node_modules/usb/build/Release/usb_bindings.node
+prebuild-install info install Successfully installed prebuilt binary!
+node-red-admin@0.2.7 /home/pi/.node-red/node_modules/node-red-admin
+axios@0.21.1 /home/pi/.node-red/node_modules/axios
+follow-redirects@1.14.0 /home/pi/.node-red/node_modules/follow-redirects
+bcryptjs@2.4.3 /home/pi/.node-red/node_modules/bcryptjs
+cli-table@0.3.6 /home/pi/.node-red/node_modules/cli-table
+colors@1.0.3 /home/pi/.node-red/node_modules/colors
+minimist@1.2.5 /home/pi/.node-red/node_modules/minimist
+read@1.0.7 /home/pi/.node-red/node_modules/read
+mute-stream@0.0.8 /home/pi/.node-red/node_modules/mute-stream
+node-red-contrib-arp@0.0.2 /home/pi/.node-red/node_modules/node-red-contrib-arp
+node-red-contrib-credentials@0.2.1 /home/pi/.node-red/node_modules/node-red-contrib-credentials
+node-red-contrib-ds18b20-sensor@1.3.6 /home/pi/.node-red/node_modules/node-red-contrib-ds18b20-sensor
+underscore@1.11.0 /home/pi/.node-red/node_modules/underscore
+node-red-contrib-function-npm@0.4.0 /home/pi/.node-red/node_modules/node-red-contrib-function-npm
+npm-install-to@3.0.1 /home/pi/.node-red/node_modules/npm-install-to
+debug@4.2.0 /home/pi/.node-red/node_modules/debug
+ms@2.1.2 /home/pi/.node-red/node_modules/ms
+fast-glob@2.2.7 /home/pi/.node-red/node_modules/fast-glob
+@mrmlnc/readdir-enhanced@2.2.1 /home/pi/.node-red/node_modules/@mrmlnc/readdir-enhanced
+call-me-maybe@1.0.1 /home/pi/.node-red/node_modules/call-me-maybe
+glob-to-regexp@0.3.0 /home/pi/.node-red/node_modules/glob-to-regexp
+@nodelib/fs.stat@1.1.3 /home/pi/.node-red/node_modules/@nodelib/fs.stat
+glob-parent@3.1.0 /home/pi/.node-red/node_modules/glob-parent
+is-glob@3.1.0 /home/pi/.node-red/node_modules/glob-parent/node_modules/is-glob
+is-extglob@2.1.1 /home/pi/.node-red/node_modules/is-extglob
+path-dirname@1.0.2 /home/pi/.node-red/node_modules/path-dirname
+is-glob@4.0.1 /home/pi/.node-red/node_modules/is-glob
+merge2@1.4.1 /home/pi/.node-red/node_modules/merge2
+micromatch@3.1.10 /home/pi/.node-red/node_modules/micromatch
+arr-diff@4.0.0 /home/pi/.node-red/node_modules/arr-diff
+array-unique@0.3.2 /home/pi/.node-red/node_modules/array-unique
+braces@2.3.2 /home/pi/.node-red/node_modules/braces
+arr-flatten@1.1.0 /home/pi/.node-red/node_modules/arr-flatten
+extend-shallow@2.0.1 /home/pi/.node-red/node_modules/braces/node_modules/extend-shallow
+is-extendable@0.1.1 /home/pi/.node-red/node_modules/is-extendable
+fill-range@4.0.0 /home/pi/.node-red/node_modules/fill-range
+extend-shallow@2.0.1 /home/pi/.node-red/node_modules/fill-range/node_modules/extend-shallow
+is-number@3.0.0 /home/pi/.node-red/node_modules/is-number
+kind-of@3.2.2 /home/pi/.node-red/node_modules/is-number/node_modules/kind-of
+is-buffer@1.1.6 /home/pi/.node-red/node_modules/is-buffer
+repeat-string@1.6.1 /home/pi/.node-red/node_modules/repeat-string
+to-regex-range@2.1.1 /home/pi/.node-red/node_modules/to-regex-range
+isobject@3.0.1 /home/pi/.node-red/node_modules/isobject
+repeat-element@1.1.3 /home/pi/.node-red/node_modules/repeat-element
+snapdragon@0.8.2 /home/pi/.node-red/node_modules/snapdragon
+base@0.11.2 /home/pi/.node-red/node_modules/base
+cache-base@1.0.1 /home/pi/.node-red/node_modules/cache-base
+collection-visit@1.0.0 /home/pi/.node-red/node_modules/collection-visit
+map-visit@1.0.0 /home/pi/.node-red/node_modules/map-visit
+object-visit@1.0.1 /home/pi/.node-red/node_modules/object-visit
+component-emitter@1.3.0 /home/pi/.node-red/node_modules/component-emitter
+get-value@2.0.6 /home/pi/.node-red/node_modules/get-value
+has-value@1.0.0 /home/pi/.node-red/node_modules/has-value
+has-values@1.0.0 /home/pi/.node-red/node_modules/has-values
+kind-of@4.0.0 /home/pi/.node-red/node_modules/has-values/node_modules/kind-of
+set-value@2.0.1 /home/pi/.node-red/node_modules/set-value
+extend-shallow@2.0.1 /home/pi/.node-red/node_modules/set-value/node_modules/extend-shallow
+is-plain-object@2.0.4 /home/pi/.node-red/node_modules/is-plain-object
+split-string@3.1.0 /home/pi/.node-red/node_modules/split-string
+extend-shallow@3.0.2 /home/pi/.node-red/node_modules/extend-shallow
+assign-symbols@1.0.0 /home/pi/.node-red/node_modules/assign-symbols
+is-extendable@1.0.1 /home/pi/.node-red/node_modules/extend-shallow/node_modules/is-extendable
+to-object-path@0.3.0 /home/pi/.node-red/node_modules/to-object-path
+kind-of@3.2.2 /home/pi/.node-red/node_modules/to-object-path/node_modules/kind-of
+union-value@1.0.1 /home/pi/.node-red/node_modules/union-value
+arr-union@3.1.0 /home/pi/.node-red/node_modules/arr-union
+unset-value@1.0.0 /home/pi/.node-red/node_modules/unset-value
+has-value@0.3.1 /home/pi/.node-red/node_modules/unset-value/node_modules/has-value
+has-values@0.1.4 /home/pi/.node-red/node_modules/unset-value/node_modules/has-values
+isobject@2.1.0 /home/pi/.node-red/node_modules/unset-value/node_modules/has-value/node_modules/isobject
+isarray@1.0.0 /home/pi/.node-red/node_modules/isarray
+class-utils@0.3.6 /home/pi/.node-red/node_modules/class-utils
+define-property@0.2.5 /home/pi/.node-red/node_modules/class-utils/node_modules/define-property
+is-descriptor@0.1.6 /home/pi/.node-red/node_modules/is-descriptor
+is-accessor-descriptor@0.1.6 /home/pi/.node-red/node_modules/is-accessor-descriptor
+kind-of@3.2.2 /home/pi/.node-red/node_modules/is-accessor-descriptor/node_modules/kind-of
+is-data-descriptor@0.1.4 /home/pi/.node-red/node_modules/is-data-descriptor
+kind-of@3.2.2 /home/pi/.node-red/node_modules/is-data-descriptor/node_modules/kind-of
+kind-of@5.1.0 /home/pi/.node-red/node_modules/is-descriptor/node_modules/kind-of
+static-extend@0.1.2 /home/pi/.node-red/node_modules/static-extend
+define-property@0.2.5 /home/pi/.node-red/node_modules/static-extend/node_modules/define-property
+object-copy@0.1.0 /home/pi/.node-red/node_modules/object-copy
+copy-descriptor@0.1.1 /home/pi/.node-red/node_modules/copy-descriptor
+define-property@0.2.5 /home/pi/.node-red/node_modules/object-copy/node_modules/define-property
+kind-of@3.2.2 /home/pi/.node-red/node_modules/object-copy/node_modules/kind-of
+define-property@1.0.0 /home/pi/.node-red/node_modules/base/node_modules/define-property
+is-descriptor@1.0.2 /home/pi/.node-red/node_modules/base/node_modules/is-descriptor
+is-accessor-descriptor@1.0.0 /home/pi/.node-red/node_modules/base/node_modules/is-accessor-descriptor
+kind-of@6.0.3 /home/pi/.node-red/node_modules/kind-of
+is-data-descriptor@1.0.0 /home/pi/.node-red/node_modules/base/node_modules/is-data-descriptor
+mixin-deep@1.3.2 /home/pi/.node-red/node_modules/mixin-deep
+for-in@1.0.2 /home/pi/.node-red/node_modules/for-in
+is-extendable@1.0.1 /home/pi/.node-red/node_modules/mixin-deep/node_modules/is-extendable
+pascalcase@0.1.1 /home/pi/.node-red/node_modules/pascalcase
+debug@2.6.9 /home/pi/.node-red/node_modules/snapdragon/node_modules/debug
+ms@2.0.0 /home/pi/.node-red/node_modules/snapdragon/node_modules/ms
+define-property@0.2.5 /home/pi/.node-red/node_modules/snapdragon/node_modules/define-property
+extend-shallow@2.0.1 /home/pi/.node-red/node_modules/snapdragon/node_modules/extend-shallow
+map-cache@0.2.2 /home/pi/.node-red/node_modules/map-cache
+source-map@0.5.7 /home/pi/.node-red/node_modules/source-map
+source-map-resolve@0.5.3 /home/pi/.node-red/node_modules/source-map-resolve
+atob@2.1.2 /home/pi/.node-red/node_modules/atob
+decode-uri-component@0.2.0 /home/pi/.node-red/node_modules/decode-uri-component
+resolve-url@0.2.1 /home/pi/.node-red/node_modules/resolve-url
+source-map-url@0.4.1 /home/pi/.node-red/node_modules/source-map-url
+urix@0.1.0 /home/pi/.node-red/node_modules/urix
+use@3.1.1 /home/pi/.node-red/node_modules/use
+snapdragon-node@2.1.1 /home/pi/.node-red/node_modules/snapdragon-node
+define-property@1.0.0 /home/pi/.node-red/node_modules/snapdragon-node/node_modules/define-property
+is-descriptor@1.0.2 /home/pi/.node-red/node_modules/snapdragon-node/node_modules/is-descriptor
+is-accessor-descriptor@1.0.0 /home/pi/.node-red/node_modules/snapdragon-node/node_modules/is-accessor-descriptor
+is-data-descriptor@1.0.0 /home/pi/.node-red/node_modules/snapdragon-node/node_modules/is-data-descriptor
+snapdragon-util@3.0.1 /home/pi/.node-red/node_modules/snapdragon-util
+kind-of@3.2.2 /home/pi/.node-red/node_modules/snapdragon-util/node_modules/kind-of
+to-regex@3.0.2 /home/pi/.node-red/node_modules/to-regex
+define-property@2.0.2 /home/pi/.node-red/node_modules/define-property
+is-descriptor@1.0.2 /home/pi/.node-red/node_modules/define-property/node_modules/is-descriptor
+is-accessor-descriptor@1.0.0 /home/pi/.node-red/node_modules/define-property/node_modules/is-accessor-descriptor
+is-data-descriptor@1.0.0 /home/pi/.node-red/node_modules/define-property/node_modules/is-data-descriptor
+regex-not@1.0.2 /home/pi/.node-red/node_modules/regex-not
+safe-regex@1.1.0 /home/pi/.node-red/node_modules/safe-regex
+ret@0.1.15 /home/pi/.node-red/node_modules/ret
+extglob@2.0.4 /home/pi/.node-red/node_modules/extglob
+define-property@1.0.0 /home/pi/.node-red/node_modules/extglob/node_modules/define-property
+is-descriptor@1.0.2 /home/pi/.node-red/node_modules/extglob/node_modules/is-descriptor
+is-accessor-descriptor@1.0.0 /home/pi/.node-red/node_modules/extglob/node_modules/is-accessor-descriptor
+is-data-descriptor@1.0.0 /home/pi/.node-red/node_modules/extglob/node_modules/is-data-descriptor
+expand-brackets@2.1.4 /home/pi/.node-red/node_modules/expand-brackets
+debug@2.6.9 /home/pi/.node-red/node_modules/expand-brackets/node_modules/debug
+ms@2.0.0 /home/pi/.node-red/node_modules/expand-brackets/node_modules/ms
+define-property@0.2.5 /home/pi/.node-red/node_modules/expand-brackets/node_modules/define-property
+extend-shallow@2.0.1 /home/pi/.node-red/node_modules/expand-brackets/node_modules/extend-shallow
+posix-character-classes@0.1.1 /home/pi/.node-red/node_modules/posix-character-classes
+extend-shallow@2.0.1 /home/pi/.node-red/node_modules/extglob/node_modules/extend-shallow
+fragment-cache@0.2.1 /home/pi/.node-red/node_modules/fragment-cache
+nanomatch@1.2.13 /home/pi/.node-red/node_modules/nanomatch
+is-windows@1.0.2 /home/pi/.node-red/node_modules/is-windows
+object.pick@1.3.0 /home/pi/.node-red/node_modules/object.pick
+global-npm@0.3.0 /home/pi/.node-red/node_modules/global-npm
+which@1.3.1 /home/pi/.node-red/node_modules/which
+isexe@2.0.0 /home/pi/.node-red/node_modules/isexe
+lodash.frompairs@4.0.1 /home/pi/.node-red/node_modules/lodash.frompairs
+lodash.zip@4.2.0 /home/pi/.node-red/node_modules/lodash.zip
+npm-package-arg@6.1.1 /home/pi/.node-red/node_modules/npm-package-arg
+hosted-git-info@2.8.8 /home/pi/.node-red/node_modules/hosted-git-info
+osenv@0.1.5 /home/pi/.node-red/node_modules/osenv
+os-homedir@1.0.2 /home/pi/.node-red/node_modules/os-homedir
+os-tmpdir@1.0.2 /home/pi/.node-red/node_modules/os-tmpdir
+semver@5.7.1 /home/pi/.node-red/node_modules/semver
+validate-npm-package-name@3.0.0 /home/pi/.node-red/node_modules/validate-npm-package-name
+builtins@1.0.3 /home/pi/.node-red/node_modules/builtins
+p-filter@1.0.0 /home/pi/.node-red/node_modules/p-filter
+p-map@1.2.0 /home/pi/.node-red/node_modules/p-map
+p-memoize@2.1.0 /home/pi/.node-red/node_modules/p-memoize
+mem@4.3.0 /home/pi/.node-red/node_modules/mem
+map-age-cleaner@0.1.3 /home/pi/.node-red/node_modules/map-age-cleaner
+p-defer@1.0.0 /home/pi/.node-red/node_modules/p-defer
+mimic-fn@2.1.0 /home/pi/.node-red/node_modules/mem/node_modules/mimic-fn
+p-is-promise@2.1.0 /home/pi/.node-red/node_modules/p-is-promise
+mimic-fn@1.2.0 /home/pi/.node-red/node_modules/mimic-fn
+strip-comments@2.0.1 /home/pi/.node-red/node_modules/strip-comments
+temp@0.9.4 /home/pi/.node-red/node_modules/temp
+mkdirp@0.5.5 /home/pi/.node-red/node_modules/mkdirp
+rimraf@2.6.3 /home/pi/.node-red/node_modules/rimraf
+glob@7.1.6 /home/pi/.node-red/node_modules/glob
+fs.realpath@1.0.0 /home/pi/.node-red/node_modules/fs.realpath
+inflight@1.0.6 /home/pi/.node-red/node_modules/inflight
+once@1.4.0 /home/pi/.node-red/node_modules/once
+wrappy@1.0.2 /home/pi/.node-red/node_modules/wrappy
+inherits@2.0.4 /home/pi/.node-red/node_modules/inherits
+minimatch@3.0.4 /home/pi/.node-red/node_modules/minimatch
+brace-expansion@1.1.11 /home/pi/.node-red/node_modules/brace-expansion
+balanced-match@1.0.0 /home/pi/.node-red/node_modules/balanced-match
+concat-map@0.0.1 /home/pi/.node-red/node_modules/concat-map
+path-is-absolute@1.0.1 /home/pi/.node-red/node_modules/path-is-absolute
+node-red-contrib-homekit-bridged@1.2.0 /home/pi/.node-red/node_modules/node-red-contrib-homekit-bridged
+hap-nodejs@0.7.9 /home/pi/.node-red/node_modules/hap-nodejs
+bonjour-hap@3.5.11 /home/pi/.node-red/node_modules/bonjour-hap
+array-flatten@2.1.2 /home/pi/.node-red/node_modules/array-flatten
+deep-equal@2.0.4 /home/pi/.node-red/node_modules/deep-equal
+es-abstract@1.18.0-next.1 /home/pi/.node-red/node_modules/es-abstract
+es-to-primitive@1.2.1 /home/pi/.node-red/node_modules/es-to-primitive
+is-callable@1.2.2 /home/pi/.node-red/node_modules/is-callable
+is-date-object@1.0.2 /home/pi/.node-red/node_modules/is-date-object
+is-symbol@1.0.3 /home/pi/.node-red/node_modules/is-symbol
+has-symbols@1.0.1 /home/pi/.node-red/node_modules/has-symbols
+function-bind@1.1.1 /home/pi/.node-red/node_modules/function-bind
+has@1.0.3 /home/pi/.node-red/node_modules/has
+is-negative-zero@2.0.0 /home/pi/.node-red/node_modules/is-negative-zero
+is-regex@1.1.1 /home/pi/.node-red/node_modules/is-regex
+object-inspect@1.8.0 /home/pi/.node-red/node_modules/object-inspect
+object-keys@1.1.1 /home/pi/.node-red/node_modules/object-keys
+object.assign@4.1.1 /home/pi/.node-red/node_modules/object.assign
+define-properties@1.1.3 /home/pi/.node-red/node_modules/define-properties
+string.prototype.trimend@1.0.2 /home/pi/.node-red/node_modules/string.prototype.trimend
+string.prototype.trimstart@1.0.2 /home/pi/.node-red/node_modules/string.prototype.trimstart
+es-get-iterator@1.1.0 /home/pi/.node-red/node_modules/es-get-iterator
+es-abstract@1.17.7 /home/pi/.node-red/node_modules/es-get-iterator/node_modules/es-abstract
+is-arguments@1.0.4 /home/pi/.node-red/node_modules/is-arguments
+is-map@2.0.1 /home/pi/.node-red/node_modules/is-map
+is-set@2.0.1 /home/pi/.node-red/node_modules/is-set
+is-string@1.0.5 /home/pi/.node-red/node_modules/is-string
+isarray@2.0.5 /home/pi/.node-red/node_modules/es-get-iterator/node_modules/isarray
+isarray@2.0.5 /home/pi/.node-red/node_modules/deep-equal/node_modules/isarray
+object-is@1.1.3 /home/pi/.node-red/node_modules/object-is
+regexp.prototype.flags@1.3.0 /home/pi/.node-red/node_modules/regexp.prototype.flags
+es-abstract@1.17.7 /home/pi/.node-red/node_modules/regexp.prototype.flags/node_modules/es-abstract
+side-channel@1.0.3 /home/pi/.node-red/node_modules/side-channel
+which-boxed-primitive@1.0.1 /home/pi/.node-red/node_modules/which-boxed-primitive
+is-bigint@1.0.0 /home/pi/.node-red/node_modules/is-bigint
+is-boolean-object@1.0.1 /home/pi/.node-red/node_modules/is-boolean-object
+is-number-object@1.0.4 /home/pi/.node-red/node_modules/is-number-object
+which-collection@1.0.1 /home/pi/.node-red/node_modules/which-collection
+is-weakmap@2.0.1 /home/pi/.node-red/node_modules/is-weakmap
+is-weakset@2.0.1 /home/pi/.node-red/node_modules/is-weakset
+which-typed-array@1.1.2 /home/pi/.node-red/node_modules/which-typed-array
+available-typed-arrays@1.0.2 /home/pi/.node-red/node_modules/available-typed-arrays
+array-filter@1.0.0 /home/pi/.node-red/node_modules/array-filter
+es-abstract@1.17.7 /home/pi/.node-red/node_modules/which-typed-array/node_modules/es-abstract
+foreach@2.0.5 /home/pi/.node-red/node_modules/foreach
+is-typed-array@1.1.3 /home/pi/.node-red/node_modules/is-typed-array
+es-abstract@1.17.7 /home/pi/.node-red/node_modules/is-typed-array/node_modules/es-abstract
+ip@1.1.5 /home/pi/.node-red/node_modules/ip
+multicast-dns@7.2.2 /home/pi/.node-red/node_modules/multicast-dns
+dns-packet@4.2.0 /home/pi/.node-red/node_modules/dns-packet
+safe-buffer@5.1.2 /home/pi/.node-red/node_modules/safe-buffer
+thunky@1.1.0 /home/pi/.node-red/node_modules/thunky
+multicast-dns-service-types@1.1.0 /home/pi/.node-red/node_modules/multicast-dns-service-types
+decimal.js@10.2.1 /home/pi/.node-red/node_modules/decimal.js
+fast-srp-hap@2.0.2 /home/pi/.node-red/node_modules/fast-srp-hap
+futoin-hkdf@1.3.2 /home/pi/.node-red/node_modules/futoin-hkdf
+node-persist@0.0.11 /home/pi/.node-red/node_modules/node-persist
+q@1.1.2 /home/pi/.node-red/node_modules/q
+tweetnacl@1.0.3 /home/pi/.node-red/node_modules/tweetnacl
+node-red-contrib-image-output@0.6.2 /home/pi/.node-red/node_modules/node-red-contrib-image-output
+jimp-compact@0.10.3 /home/pi/.node-red/node_modules/jimp-compact
+node-red-contrib-noble-bluetooth@0.9.1 /home/pi/.node-red/node_modules/node-red-contrib-noble-bluetooth
+@abandonware/noble@1.9.2-13 /home/pi/.node-red/node_modules/@abandonware/noble
+debug@4.3.1 /home/pi/.node-red/node_modules/@abandonware/noble/node_modules/debug
+napi-thread-safe-callback@0.0.6 /home/pi/.node-red/node_modules/napi-thread-safe-callback
+node-addon-api@3.1.0 /home/pi/.node-red/node_modules/node-addon-api
+node-red-contrib-os@0.2.0 /home/pi/.node-red/node_modules/node-red-contrib-os
+loadavg-windows@1.1.1 /home/pi/.node-red/node_modules/loadavg-windows
+weak-daemon@1.0.3 /home/pi/.node-red/node_modules/weak-daemon
+node-disk-info@1.1.0 /home/pi/.node-red/node_modules/node-disk-info
+node-red-contrib-play-audio@2.5.0 /home/pi/.node-red/node_modules/node-red-contrib-play-audio
+node-red-contrib-shelly@1.5.3 /home/pi/.node-red/node_modules/node-red-contrib-shelly
+request@2.88.2 /home/pi/.node-red/node_modules/request
+aws-sign2@0.7.0 /home/pi/.node-red/node_modules/aws-sign2
+aws4@1.11.0 /home/pi/.node-red/node_modules/aws4
+caseless@0.12.0 /home/pi/.node-red/node_modules/caseless
+combined-stream@1.0.8 /home/pi/.node-red/node_modules/combined-stream
+delayed-stream@1.0.0 /home/pi/.node-red/node_modules/delayed-stream
+extend@3.0.2 /home/pi/.node-red/node_modules/extend
+forever-agent@0.6.1 /home/pi/.node-red/node_modules/forever-agent
+form-data@2.3.3 /home/pi/.node-red/node_modules/form-data
+asynckit@0.4.0 /home/pi/.node-red/node_modules/asynckit
+mime-types@2.1.27 /home/pi/.node-red/node_modules/mime-types
+mime-db@1.44.0 /home/pi/.node-red/node_modules/mime-db
+har-validator@5.1.5 /home/pi/.node-red/node_modules/har-validator
+ajv@6.12.6 /home/pi/.node-red/node_modules/ajv
+fast-deep-equal@3.1.3 /home/pi/.node-red/node_modules/fast-deep-equal
+fast-json-stable-stringify@2.1.0 /home/pi/.node-red/node_modules/fast-json-stable-stringify
+json-schema-traverse@0.4.1 /home/pi/.node-red/node_modules/json-schema-traverse
+uri-js@4.4.1 /home/pi/.node-red/node_modules/uri-js
+punycode@2.1.1 /home/pi/.node-red/node_modules/punycode
+har-schema@2.0.0 /home/pi/.node-red/node_modules/har-schema
+http-signature@1.2.0 /home/pi/.node-red/node_modules/http-signature
+assert-plus@1.0.0 /home/pi/.node-red/node_modules/assert-plus
+jsprim@1.4.1 /home/pi/.node-red/node_modules/jsprim
+extsprintf@1.3.0 /home/pi/.node-red/node_modules/extsprintf
+json-schema@0.2.3 /home/pi/.node-red/node_modules/json-schema
+verror@1.10.0 /home/pi/.node-red/node_modules/verror
+core-util-is@1.0.2 /home/pi/.node-red/node_modules/core-util-is
+sshpk@1.16.1 /home/pi/.node-red/node_modules/sshpk
+asn1@0.2.4 /home/pi/.node-red/node_modules/asn1
+safer-buffer@2.1.2 /home/pi/.node-red/node_modules/safer-buffer
+bcrypt-pbkdf@1.0.2 /home/pi/.node-red/node_modules/bcrypt-pbkdf
+tweetnacl@0.14.5 /home/pi/.node-red/node_modules/bcrypt-pbkdf/node_modules/tweetnacl
+dashdash@1.14.1 /home/pi/.node-red/node_modules/dashdash
+ecc-jsbn@0.1.2 /home/pi/.node-red/node_modules/ecc-jsbn
+jsbn@0.1.1 /home/pi/.node-red/node_modules/jsbn
+getpass@0.1.7 /home/pi/.node-red/node_modules/getpass
+tweetnacl@0.14.5 /home/pi/.node-red/node_modules/sshpk/node_modules/tweetnacl
+is-typedarray@1.0.0 /home/pi/.node-red/node_modules/is-typedarray
+isstream@0.1.2 /home/pi/.node-red/node_modules/isstream
+json-stringify-safe@5.0.1 /home/pi/.node-red/node_modules/json-stringify-safe
+oauth-sign@0.9.0 /home/pi/.node-red/node_modules/oauth-sign
+performance-now@2.1.0 /home/pi/.node-red/node_modules/performance-now
+qs@6.5.2 /home/pi/.node-red/node_modules/qs
+tough-cookie@2.5.0 /home/pi/.node-red/node_modules/tough-cookie
+psl@1.8.0 /home/pi/.node-red/node_modules/psl
+tunnel-agent@0.6.0 /home/pi/.node-red/node_modules/tunnel-agent
+uuid@3.4.0 /home/pi/.node-red/node_modules/uuid
+node-red-contrib-string@1.0.0 /home/pi/.node-red/node_modules/node-red-contrib-string
+string@3.3.8 /home/pi/.node-red/node_modules/string
+node-red-contrib-toggle@0.1.1 /home/pi/.node-red/node_modules/node-red-contrib-toggle
+node-red-contrib-ui-countdown-timer-switch@1.3.0 /home/pi/.node-red/node_modules/node-red-contrib-ui-countdown-timer-switch
+node-red-contrib-ui-led@0.4.9 /home/pi/.node-red/node_modules/node-red-contrib-ui-led
+node-red-contrib-ui-media@1.2.0 /home/pi/.node-red/node_modules/node-red-contrib-ui-media
+formidable@1.2.2 /home/pi/.node-red/node_modules/formidable
+node-red-contrib-viera@0.0.2 /home/pi/.node-red/node_modules/node-red-contrib-viera
+viera.js@0.1.5 /home/pi/.node-red/node_modules/viera.js
+node-red-dashboard@2.28.2 /home/pi/.node-red/node_modules/node-red-dashboard
+compression@1.7.4 /home/pi/.node-red/node_modules/compression
+accepts@1.3.7 /home/pi/.node-red/node_modules/accepts
+negotiator@0.6.2 /home/pi/.node-red/node_modules/negotiator
+bytes@3.0.0 /home/pi/.node-red/node_modules/bytes
+compressible@2.0.18 /home/pi/.node-red/node_modules/compressible
+debug@2.6.9 /home/pi/.node-red/node_modules/compression/node_modules/debug
+ms@2.0.0 /home/pi/.node-red/node_modules/compression/node_modules/ms
+on-headers@1.0.2 /home/pi/.node-red/node_modules/on-headers
+vary@1.1.2 /home/pi/.node-red/node_modules/vary
+gridstack@0.6.4 /home/pi/.node-red/node_modules/gridstack
+jquery@3.6.0 /home/pi/.node-red/node_modules/jquery
+serve-static@1.14.1 /home/pi/.node-red/node_modules/serve-static
+encodeurl@1.0.2 /home/pi/.node-red/node_modules/encodeurl
+escape-html@1.0.3 /home/pi/.node-red/node_modules/escape-html
+parseurl@1.3.3 /home/pi/.node-red/node_modules/parseurl
+send@0.17.1 /home/pi/.node-red/node_modules/send
+debug@2.6.9 /home/pi/.node-red/node_modules/send/node_modules/debug
+ms@2.0.0 /home/pi/.node-red/node_modules/send/node_modules/debug/node_modules/ms
+depd@1.1.2 /home/pi/.node-red/node_modules/depd
+destroy@1.0.4 /home/pi/.node-red/node_modules/destroy
+etag@1.8.1 /home/pi/.node-red/node_modules/etag
+fresh@0.5.2 /home/pi/.node-red/node_modules/fresh
+http-errors@1.7.3 /home/pi/.node-red/node_modules/http-errors
+setprototypeof@1.1.1 /home/pi/.node-red/node_modules/setprototypeof
+statuses@1.5.0 /home/pi/.node-red/node_modules/statuses
+toidentifier@1.0.0 /home/pi/.node-red/node_modules/toidentifier
+mime@1.6.0 /home/pi/.node-red/node_modules/mime
+ms@2.1.1 /home/pi/.node-red/node_modules/send/node_modules/ms
+on-finished@2.3.0 /home/pi/.node-red/node_modules/on-finished
+ee-first@1.1.1 /home/pi/.node-red/node_modules/ee-first
+range-parser@1.2.1 /home/pi/.node-red/node_modules/range-parser
+socket.io@2.4.1 /home/pi/.node-red/node_modules/socket.io
+debug@4.1.1 /home/pi/.node-red/node_modules/socket.io/node_modules/debug
+engine.io@3.5.0 /home/pi/.node-red/node_modules/engine.io
+base64id@2.0.0 /home/pi/.node-red/node_modules/base64id
+cookie@0.4.1 /home/pi/.node-red/node_modules/cookie
+debug@4.1.1 /home/pi/.node-red/node_modules/engine.io/node_modules/debug
+engine.io-parser@2.2.1 /home/pi/.node-red/node_modules/engine.io-parser
+after@0.8.2 /home/pi/.node-red/node_modules/after
+arraybuffer.slice@0.0.7 /home/pi/.node-red/node_modules/arraybuffer.slice
+base64-arraybuffer@0.1.4 /home/pi/.node-red/node_modules/base64-arraybuffer
+blob@0.0.5 /home/pi/.node-red/node_modules/blob
+has-binary2@1.0.3 /home/pi/.node-red/node_modules/has-binary2
+isarray@2.0.1 /home/pi/.node-red/node_modules/has-binary2/node_modules/isarray
+ws@7.4.4 /home/pi/.node-red/node_modules/ws
+socket.io-adapter@1.1.2 /home/pi/.node-red/node_modules/socket.io-adapter
+socket.io-client@2.4.0 /home/pi/.node-red/node_modules/socket.io-client
+backo2@1.0.2 /home/pi/.node-red/node_modules/backo2
+component-bind@1.0.0 /home/pi/.node-red/node_modules/component-bind
+debug@3.1.0 /home/pi/.node-red/node_modules/socket.io-client/node_modules/debug
+ms@2.0.0 /home/pi/.node-red/node_modules/socket.io-client/node_modules/ms
+engine.io-client@3.5.1 /home/pi/.node-red/node_modules/engine.io-client
+component-inherit@0.0.3 /home/pi/.node-red/node_modules/component-inherit
+debug@3.1.0 /home/pi/.node-red/node_modules/engine.io-client/node_modules/debug
+ms@2.0.0 /home/pi/.node-red/node_modules/engine.io-client/node_modules/ms
+has-cors@1.1.0 /home/pi/.node-red/node_modules/has-cors
+indexof@0.0.1 /home/pi/.node-red/node_modules/indexof
+parseqs@0.0.6 /home/pi/.node-red/node_modules/parseqs
+parseuri@0.0.6 /home/pi/.node-red/node_modules/parseuri
+xmlhttprequest-ssl@1.5.5 /home/pi/.node-red/node_modules/xmlhttprequest-ssl
+yeast@0.1.2 /home/pi/.node-red/node_modules/yeast
+socket.io-parser@3.3.2 /home/pi/.node-red/node_modules/socket.io-client/node_modules/socket.io-parser
+isarray@2.0.1 /home/pi/.node-red/node_modules/socket.io-client/node_modules/isarray
+to-array@0.1.4 /home/pi/.node-red/node_modules/to-array
+socket.io-parser@3.4.1 /home/pi/.node-red/node_modules/socket.io-parser
+component-emitter@1.2.1 /home/pi/.node-red/node_modules/socket.io-parser/node_modules/component-emitter
+debug@4.1.1 /home/pi/.node-red/node_modules/socket.io-parser/node_modules/debug
+isarray@2.0.1 /home/pi/.node-red/node_modules/socket.io-parser/node_modules/isarray
+node-red-node-base64@0.3.0 /home/pi/.node-red/node_modules/node-red-node-base64
+node-red-node-pi-gpio@1.2.3 /home/pi/.node-red/node_modules/node-red-node-pi-gpio
+node-red-node-ping@0.3.1 /home/pi/.node-red/node_modules/node-red-node-ping
+node-red-node-random@0.4.0 /home/pi/.node-red/node_modules/node-red-node-random
+node-red-node-serialport@0.14.0 /home/pi/.node-red/node_modules/node-red-node-serialport
+serialport@9.0.7 /home/pi/.node-red/node_modules/serialport
+@serialport/binding-mock@9.0.7 /home/pi/.node-red/node_modules/@serialport/binding-mock
+@serialport/binding-abstract@9.0.7 /home/pi/.node-red/node_modules/@serialport/binding-abstract
+debug@4.3.1 /home/pi/.node-red/node_modules/@serialport/binding-abstract/node_modules/debug
+debug@4.3.1 /home/pi/.node-red/node_modules/@serialport/binding-mock/node_modules/debug
+@serialport/bindings@9.0.7 /home/pi/.node-red/node_modules/@serialport/bindings
+@serialport/parser-readline@9.0.7 /home/pi/.node-red/node_modules/@serialport/parser-readline
+@serialport/parser-delimiter@9.0.7 /home/pi/.node-red/node_modules/@serialport/parser-delimiter
+bindings@1.5.0 /home/pi/.node-red/node_modules/bindings
+file-uri-to-path@1.0.0 /home/pi/.node-red/node_modules/file-uri-to-path
+debug@4.3.1 /home/pi/.node-red/node_modules/@serialport/bindings/node_modules/debug
+nan@2.14.2 /home/pi/.node-red/node_modules/nan
+prebuild-install@6.1.2 /home/pi/.node-red/node_modules/prebuild-install
+detect-libc@1.0.3 /home/pi/.node-red/node_modules/detect-libc
+expand-template@2.0.3 /home/pi/.node-red/node_modules/expand-template
+github-from-package@0.0.0 /home/pi/.node-red/node_modules/github-from-package
+mkdirp-classic@0.5.3 /home/pi/.node-red/node_modules/mkdirp-classic
+napi-build-utils@1.0.2 /home/pi/.node-red/node_modules/napi-build-utils
+node-abi@2.21.0 /home/pi/.node-red/node_modules/node-abi
+noop-logger@0.1.1 /home/pi/.node-red/node_modules/noop-logger
+npmlog@4.1.2 /home/pi/.node-red/node_modules/npmlog
+are-we-there-yet@1.1.5 /home/pi/.node-red/node_modules/are-we-there-yet
+delegates@1.0.0 /home/pi/.node-red/node_modules/delegates
+readable-stream@2.3.7 /home/pi/.node-red/node_modules/readable-stream
+process-nextick-args@2.0.1 /home/pi/.node-red/node_modules/process-nextick-args
+string_decoder@1.1.1 /home/pi/.node-red/node_modules/string_decoder
+util-deprecate@1.0.2 /home/pi/.node-red/node_modules/util-deprecate
+console-control-strings@1.1.0 /home/pi/.node-red/node_modules/console-control-strings
+gauge@2.7.4 /home/pi/.node-red/node_modules/gauge
+aproba@1.2.0 /home/pi/.node-red/node_modules/aproba
+has-unicode@2.0.1 /home/pi/.node-red/node_modules/has-unicode
+object-assign@4.1.1 /home/pi/.node-red/node_modules/object-assign
+signal-exit@3.0.3 /home/pi/.node-red/node_modules/signal-exit
+string-width@1.0.2 /home/pi/.node-red/node_modules/string-width
+code-point-at@1.1.0 /home/pi/.node-red/node_modules/code-point-at
+is-fullwidth-code-point@1.0.0 /home/pi/.node-red/node_modules/is-fullwidth-code-point
+number-is-nan@1.0.1 /home/pi/.node-red/node_modules/number-is-nan
+strip-ansi@3.0.1 /home/pi/.node-red/node_modules/strip-ansi
+ansi-regex@2.1.1 /home/pi/.node-red/node_modules/ansi-regex
+wide-align@1.1.3 /home/pi/.node-red/node_modules/wide-align
+set-blocking@2.0.0 /home/pi/.node-red/node_modules/set-blocking
+pump@3.0.0 /home/pi/.node-red/node_modules/pump
+end-of-stream@1.4.4 /home/pi/.node-red/node_modules/end-of-stream
+rc@1.2.8 /home/pi/.node-red/node_modules/rc
+deep-extend@0.6.0 /home/pi/.node-red/node_modules/deep-extend
+ini@1.3.8 /home/pi/.node-red/node_modules/ini
+strip-json-comments@2.0.1 /home/pi/.node-red/node_modules/strip-json-comments
+simple-get@3.1.0 /home/pi/.node-red/node_modules/simple-get
+decompress-response@4.2.1 /home/pi/.node-red/node_modules/decompress-response
+mimic-response@2.1.0 /home/pi/.node-red/node_modules/mimic-response
+simple-concat@1.0.1 /home/pi/.node-red/node_modules/simple-concat
+tar-fs@2.1.1 /home/pi/.node-red/node_modules/tar-fs
+chownr@1.1.4 /home/pi/.node-red/node_modules/chownr
+tar-stream@2.2.0 /home/pi/.node-red/node_modules/tar-stream
+bl@4.1.0 /home/pi/.node-red/node_modules/bl
+buffer@5.7.1 /home/pi/.node-red/node_modules/buffer
+base64-js@1.5.1 /home/pi/.node-red/node_modules/base64-js
+ieee754@1.2.1 /home/pi/.node-red/node_modules/ieee754
+readable-stream@3.6.0 /home/pi/.node-red/node_modules/bl/node_modules/readable-stream
+fs-constants@1.0.0 /home/pi/.node-red/node_modules/fs-constants
+readable-stream@3.6.0 /home/pi/.node-red/node_modules/tar-stream/node_modules/readable-stream
+@serialport/parser-byte-length@9.0.7 /home/pi/.node-red/node_modules/@serialport/parser-byte-length
+@serialport/parser-cctalk@9.0.7 /home/pi/.node-red/node_modules/@serialport/parser-cctalk
+@serialport/parser-inter-byte-timeout@9.0.7 /home/pi/.node-red/node_modules/@serialport/parser-inter-byte-timeout
+@serialport/parser-ready@9.0.7 /home/pi/.node-red/node_modules/@serialport/parser-ready
+@serialport/parser-regex@9.0.7 /home/pi/.node-red/node_modules/@serialport/parser-regex
+@serialport/stream@9.0.7 /home/pi/.node-red/node_modules/@serialport/stream
+debug@4.3.1 /home/pi/.node-red/node_modules/@serialport/stream/node_modules/debug
+debug@4.3.1 /home/pi/.node-red/node_modules/serialport/node_modules/debug
+node-red-node-smooth@0.1.2 /home/pi/.node-red/node_modules/node-red-node-smooth
+node-red-node-suncalc@1.0.1 /home/pi/.node-red/node_modules/node-red-node-suncalc
+suncalc@1.8.0 /home/pi/.node-red/node_modules/suncalc
+node-red-node-ui-lineargauge@0.3.6 /home/pi/.node-red/node_modules/node-red-node-ui-lineargauge
+abbrev@1.1.1 /home/pi/.node-red/node_modules/abbrev
+fs-minipass@1.2.7 /home/pi/.node-red/node_modules/fs-minipass
+minipass@2.9.0 /home/pi/.node-red/node_modules/minipass
+yallist@3.1.1 /home/pi/.node-red/node_modules/yallist
+iconv-lite@0.4.24 /home/pi/.node-red/node_modules/iconv-lite
+ignore-walk@3.0.3 /home/pi/.node-red/node_modules/ignore-walk
+minizlib@1.3.3 /home/pi/.node-red/node_modules/minizlib
+npm-bundled@1.1.1 /home/pi/.node-red/node_modules/npm-bundled
+npm-normalize-package-bin@1.0.1 /home/pi/.node-red/node_modules/npm-normalize-package-bin
+npm-packlist@1.4.8 /home/pi/.node-red/node_modules/npm-packlist
+sax@1.2.4 /home/pi/.node-red/node_modules/sax
+tar@4.4.13 /home/pi/.node-red/node_modules/tar
+which-pm-runs@1.0.0 /home/pi/.node-red/node_modules/which-pm-runs
+nopt@4.0.3 /home/pi/.node-red/node_modules/nopt
+@abandonware/bluetooth-hci-socket@0.5.3-7 /home/pi/.node-red/node_modules/@abandonware/bluetooth-hci-socket
+debug@4.3.1 /home/pi/.node-red/node_modules/@abandonware/bluetooth-hci-socket/node_modules/debug
+node-pre-gyp@0.17.0 /home/pi/.node-red/node_modules/node-pre-gyp
+needle@2.6.0 /home/pi/.node-red/node_modules/needle
+debug@3.2.7 /home/pi/.node-red/node_modules/needle/node_modules/debug
+rimraf@2.7.1 /home/pi/.node-red/node_modules/node-pre-gyp/node_modules/rimraf
+bcrypt@3.0.8 /home/pi/.node-red/node_modules/bcrypt
+nan@2.14.0 /home/pi/.node-red/node_modules/bcrypt/node_modules/nan
+node-pre-gyp@0.14.0 /home/pi/.node-red/node_modules/bcrypt/node_modules/node-pre-gyp
+usb@1.7.0 /home/pi/.node-red/node_modules/usb
+node-addon-api@3.0.2 /home/pi/.node-red/node_modules/usb/node_modules/node-addon-api
+prebuild-install@5.3.6 /home/pi/.node-red/node_modules/usb/node_modules/prebuild-install
+Now add the shortcut and start/stop/log scripts to the menu
+Now add systemd script and configure it for pi
+ln: die symbolische Verknüpfung '/usr/bin/python' konnte nicht angelegt werden: Die Datei existiert bereits
+Now add launcher to top bar, add cpu temp example, make sure ping works
+Der Benutzer »pi« ist bereits ein Mitglied der Gruppe »gpio«.
+Memory : 532M
+Finished : Mi 28. Apr 07:54:35 CEST 2021
