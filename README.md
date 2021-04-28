@@ -13,9 +13,11 @@ Wikipedia [Node-RED ](https://de.wikipedia.org/wiki/Node-RED)
 
 [Homepage](https://nodered.org/)
 
-### Installation
-Offizielle Anleitung für [Raspberry Pi](https://nodered.org/docs/getting-started/raspberrypi)  
-**Hinweis:** lokale Installation ohne npm wurde verwendet ```sudo apt-get install nodered```
+## Installation
+* Getting started [Raspberry Pi](https://nodered.org/docs/getting-started/raspberrypi)  
+  **Hinweis:** lokale Installation ohne npm wurde verwendet ```sudo apt-get install nodered```
+* Getting started [Windows](https://nodered.org/docs/getting-started/windows#running-on-windows) - installed on Acer  
+  **Hinweis:** Command-Window: ```node-red```  - Chrome browser: [http://127.0.0.1:1880/](http://127.0.0.1:1880/)  
 
 ### Upgrading Node-RED
 ```sudo npm install -g --unsafe-perm node-red```  
