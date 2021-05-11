@@ -22,6 +22,6 @@
 [![Sun](flows_sun_tab.jpg)](flows_sun_tab.json)  
 
 ## Backup (manually)
-see private flow [here](https://github.com/griemide/NR/blob/main/flows/readme.md)
-[![BAK](flows_Backup.jpg)](flows_Backup.json)  
+See private flow example for Raspberry Pi OS and Windows 10 [here](https://github.com/griemide/NR/blob/main/flows/readme.md)  
+[![BAK](flows_Backup.jpg)](flows_Backup.json)   
 
