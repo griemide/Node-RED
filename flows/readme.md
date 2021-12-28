@@ -25,3 +25,7 @@
 See private flow example for Raspberry Pi OS and Windows 10 [here](https://github.com/griemide/NR/blob/main/flows/readme.md)  
 [![BAK](flows_Backup.jpg)](flows_Backup.json)   
 
+## Remote-RED (iOS App)
+See [Remote-RED Homepage](https://www.remote-red.com/de/home/) and [iOS AppStore](https://apps.apple.com/de/app/remote-red/id1529777665) for details.  
+[![RED](flows_Remote-RED.jpg)](flows_Remote-RED.json)   
+
