@@ -9,6 +9,9 @@
 ## MAC address
 [![MAC](RPiZW3_MAC-address_flows.jpg)](RPiZW3_MAC-address_flows.json)  
 
+## MQTT Broker Status (NSPanel Pro 120)
+[![MQTT](flows_mqtt_broker-status-nspanel120pro-landscape.png)](flows_mqtt_broker-status-nspanel120pro-landscape.json)  
+
 ## Shelly
 [![Shelly](RPiZW2_Shelly_2021-02-26_flows.jpg)](RPiZW2_Shelly_2021-02-26_flows.json)  
 
